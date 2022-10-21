@@ -25,7 +25,7 @@ public class MemberController {
 	@PostMapping
 	public String regist(MemberRegistRequest request) {
 		memberService.regist(request);
-		return "main";
+		return "redirect:/";
 	}
 
 	@PostMapping("/login")
@@ -55,5 +55,10 @@ public class MemberController {
 		System.out.println(session.getAttribute("id"));
 		return memberService.validateId(id);
 	}
+
+	// @GetMapping("/my")
+	// public String my(HttpSession session) {
+	// 	return
+	// }
 
 }

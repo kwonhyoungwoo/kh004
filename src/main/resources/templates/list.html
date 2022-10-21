@@ -15,10 +15,21 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" th:href="@{../static/style.css}" />
+
     <script src="./script/modal.js" defer></script>
+    <script th:src="@{/../static/script/modal.js}" defer></script>
     <script src="./script/dropdown.js" defer></script>
+    <script th:src="@{/../static/script/dropdown.js}" defer></script>
+
     <script src="./script/main-slide.js" defer></script>
+    <script th:src="@{/../static/script/main-slide.js}" defer></script>
+
+
     <script src="./script/full-slide.js" defer></script>
+    <script th:src="@{/../static/script/full-slide.js}" defer></script>
+
+
     <script src="./script/half-slide.js" defer></script>
     <script src="./script/md-category.js" defer></script>
     <script src="./script/quickmenu.js" defer></script>
@@ -54,7 +65,7 @@
             <a href="./login.html">로그인</a>
           </li>
           <li th:if="${name != null}" class="sign-up-item">
-            <a th:src="/member/my"><span th:text="${name}"> </span> 님 안녕하세요.</a>
+<!--            <a th:src="/member/my"><span th:text="${name}"> </span> 님 안녕하세요.</a>-->
           </li>
           <li class="service-center-item">
             <a href="#">고객센터</a>
@@ -872,9 +883,9 @@
         </ul>
 
         <div class="sub-menu">
-          <form action="/test-item/사과" method="get" class="search-box">
+          <form action="#" class="search-box">
             <input type="text" placeholder="로맨틱 화이트데이 식탁 준비하기" />
-            <button type="submit" class="button-search"></button>
+            <button type="button" class="button-search"></button>
           </form>
           <button type="button" class="button-coords"></button>
           <button type="button" class="button-cart"></button>
@@ -940,224 +951,15 @@
             <div class="product-slide-wrap">
               <div class="product-box">
                 <ul class="recommend-items">
-                  <li>
+                  <li th:each="item : ${list}">
                     <a href="#" class="recommend-product-image image-hover"></a>
                     <a href="#">
-                      <h3 class="product-name">아스파라거스 200g</h3>
+                      <h3 class="product-name" th:text="${item.name}"></h3>
                     </a>
                     <div class="product-price">
-                      <strong class="discount-rate">10%</strong>
-                      <strong class="final-price">25,110원</strong>
-                      <span class="regular-price">27,900원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[풀무원] 생면식감 꽃게탕면</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">10%</strong>
-                      <strong class="final-price">25,110원</strong>
-                      <span class="regular-price">27,900원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">GAP 사과 한 봉지 5~6입</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">10%</strong>
-                      <strong class="final-price">25,110원</strong>
-                      <span class="regular-price">27,900원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">
-                        [제주돼지] 제주 흑돼지 목살 300g (냉장)
-                      </h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">10%</strong>
-                      <strong class="final-price">25,110원</strong>
-                      <span class="regular-price">27,900원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[Everyday] 시래기 된장국</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">5%</strong>
-                      <strong class="final-price">3,800원</strong>
-                      <span class="regular-price">4,000원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[바버] 1833 체다치즈</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">15%</strong>
-                      <strong class="final-price">8,245원</strong>
-                      <span class="regular-price">9,700원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[청오건강] 유기농 쌀가루</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">10%</strong>
-                      <strong class="final-price">3,330원</strong>
-                      <span class="regular-price">3,700원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[KF365] 아보카도 1개</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">10%</strong>
-                      <strong class="final-price">2,241원</strong>
-                      <span class="regular-price">2,490원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[솔가] 아연 (100일분)</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">35%</strong>
-                      <strong class="final-price">21,450원</strong>
-                      <span class="regular-price">33,000원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[자연에찬] 족발 슬라이스</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">10%</strong>
-                      <strong class="final-price">7,200원</strong>
-                      <span class="regular-price">8,000원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[그랑도르즈] 까망베르 2종</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="final-price">11,900원</strong>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">친환경 쑥갓 150g</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">10%</strong>
-                      <strong class="final-price">1,530원</strong>
-                      <span class="regular-price">1,700원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[동트는농가] 청국장 찌개</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">2%</strong>
-                      <strong class="final-price">4,180원</strong>
-                      <span class="regular-price">4,300원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[우리밀] 두부과자</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">2%</strong>
-                      <strong class="final-price">2,240원</strong>
-                      <span class="regular-price">2,300원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[콜린스그린] 더 자몽</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">10%</strong>
-                      <strong class="final-price">14,940원</strong>
-                      <span class="regular-price">16,600원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[프란시아] 모짜렐라 부팔라</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">20%</strong>
-                      <strong class="final-price">6,240원</strong>
-                      <span class="regular-price">7,800원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">친환경 파채 200g</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">5%</strong>
-                      <strong class="final-price">2,470원</strong>
-                      <span class="regular-price">2,600원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[Everyday] 새우 브로콜리죽</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">5%</strong>
-                      <strong class="final-price">5,700원</strong>
-                      <span class="regular-price">6,000원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[새로미부산어묵] 게맛살</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">3%</strong>
-                      <strong class="final-price">5,200원</strong>
-                      <span class="regular-price">5,400원</span>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#" class="recommend-product-image image-hover"></a>
-                    <a href="#">
-                      <h3 class="product-name">[상하목장] 유기농 우유</h3>
-                    </a>
-                    <div class="product-price">
-                      <strong class="discount-rate">20%</strong>
-                      <strong class="final-price">5,680원</strong>
-                      <span class="regular-price">7,100원</span>
+                      <strong class="discount-rate"  th:text="${item.discount}"></strong>
+                      <strong class="final-price" th:text="${item.price * (100 - item.discount)}"><span>원</span></strong>
+                      <span class="regular-price" th:text="${item.price}"><span>원</span></span>
                     </div>
                   </li>
                 </ul>
