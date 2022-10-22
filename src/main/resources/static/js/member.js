@@ -28,11 +28,6 @@ function joinCheck() {
 		return false;
 	}
 	
-	if (document.frm.name.value.length == 1) {
-		alert("이름을 써주세요.");
-		frm.name.focus();
-		return false;
-	}
 	
 	
 	
