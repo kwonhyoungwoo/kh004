@@ -28,7 +28,7 @@ function joinCheck() {
 		return false;
 	}
 	
-	
+	ss
 	
 	
 	return true;
