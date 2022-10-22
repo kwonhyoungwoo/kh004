@@ -1,0 +1,164 @@
+/* 헤더 영역 CSS */
+/* 카테고리 서브 선택 color 고민중 */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul, li {
+	list-style: none;
+}
+
+a {	
+	color: inherit;
+	text-decoration:none;
+}
+#wrap {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#header{
+	width: 100%;
+	height: 160px;
+	border-bottom: 1px solid #d3d3d3;
+}
+
+#header #header_top {
+	width: 100%;
+	height: 30px;
+}
+
+header .nav { 
+	float: right;
+}
+
+header .nav li {
+	display: inline-block;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 20px;
+	font-size: 13px;
+}
+
+header .nav li:first-child {
+	margin-left: 0;
+}
+
+#header #header_mid {
+	width: 100%;
+	height: 80px;
+}
+
+#header .logo {
+	float : left;
+}
+
+#header .logo img {
+	height: 60px;
+	margin-top: 10px;
+	margin-left: 200px;
+}
+
+.search_box {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	text-align: center;
+	
+}
+
+.search_box input[type="search"]{
+	height: 40px;
+	border: none;
+	border-bottom: 1px solid #34404b;
+	width: 500px;
+	display: inline-block;
+	
+}
+
+.search_box button {
+	display:inline-block;
+	border:none;
+	vertical-align: bottom;
+	background-color:transparent;
+	
+}
+
+.cart {
+	float:right;
+}
+
+.cart li {
+	margin-top: 30px;
+	margin-left: 15px;
+	margin-right: 50px;
+	display: inline-block;
+}
+
+.cart li a {
+	color: #000;
+}
+	
+#header #header_bot{
+	width: 100%;
+	height: 50px;
+}
+
+.menu_bar {
+	text-align: center;
+}
+
+.menu_bar ul {
+	display: inline-flex;
+	list-style: none;
+	font-weight: bold;
+}
+
+.menu_bar ul li {
+	z-index: 1;
+	width: 250px;
+	margin: 0px;
+	padding: 15px;
+	
+}
+
+.menu_bar .fa {
+	margin-right: 8px;
+}
+
+.sub_menu_1{
+	display: none;
+}
+
+.menu_bar ul li:hover .sub_menu_1 {
+	display: block;
+	position: absolute;
+	background-color: #ffffff;
+    background-color: rgba( 255, 255, 255, 0.9 );
+	margin-top: 15px;
+	margin-left: 55px;
+	
+}
+
+.menu_bar ul li:hover .sub_menu_1 ul {
+	display: block;
+	padding: 10px;
+}
+
+.menu_bar ul li:hover .sub_menu_1 ul li {
+	width: 100px;
+	padding: 10px;
+	border-bottom: 1px solid gray;
+	background: transparent;
+	border-radius: 0;
+	text-align: center;
+}
+
+/* 전체 카테고리 hover시 컬러변경 나중에 할거 
+.menu_bar ul li:hover .sub_menu_1 ul li a:hover {
+	color:;
+}
+*/ 
