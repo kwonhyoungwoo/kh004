@@ -43,7 +43,7 @@
 			<%-- 헤더 중간 --%>
 			<div id="header_mid">
 				<h1 class="logo">
-					<a href="/"><img src="/images/logo.png"></a>
+					<a href="/"><img src="/image/logo.png"></a>
 				</h1>
 				<div class="search_box">
 					<form action="#" method="get">

@@ -16,7 +16,7 @@ public class MainController {
 			// 모델에 이름 정보를 담아준다.
 			model.addAttribute("name", session.getAttribute("name"));
 		}
-		return "main";
+		return "/main/index";
 	}
 
 }
