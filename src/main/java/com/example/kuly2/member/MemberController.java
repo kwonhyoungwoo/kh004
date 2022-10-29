@@ -7,11 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.kuly2.member.request.MemberFindIdRequest;
+import com.example.kuly2.member.request.MemberFindPasswordRequest;
 import com.example.kuly2.member.request.MemberLoginRequest;
 import com.example.kuly2.member.request.MemberRegistRequest;
 import com.example.kuly2.member.request.MemberUpdateRequest;
@@ -68,6 +68,19 @@ public class MemberController {
 		model.addAttribute("id", id);
 		return "loginFindResult";
 	}
+	
+	@GetMapping("/find/password")
+	public String findPassword(MemberFindPasswordRequest request, Model model) {
+		String password = memberService.findPassword(request);
+		if (password ==null || password.equals("")) {
+			return "redirect:/findPasswordFail.html";
+		}
+		model.addAttribute("password", password);
+		return "passwordFindResult";
+		
+	
+}
+	
 
 	@GetMapping("/my")
 	public String my(HttpSession session) {
