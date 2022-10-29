@@ -2,40 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/real_main.css"/>
+<link rel="stylesheet" type="text/css" href="css/real_main.css.css"/>
     <link rel="stylesheet" type="text/css" href="css/mylist.css"/>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
-            rel="stylesheet"
-    />
-    <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-            integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
-            crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./style.css" />
-    <script src="./script/modal.js" defer></script>
-    <script src="./script/dropdown.js" defer></script>
-    <script src="./script/main-slide.js" defer></script>
-    <script src="./script/full-slide.js" defer></script>
-    <script src="./script/half-slide.js" defer></script>
-    <script src="./script/md-category.js" defer></script>
-    <script src="./script/quickmenu.js" defer></script>
-    <script src="./script/timer.js" defer></script>
+
   
 </head>
 <body>
 <div class="container">
     
     <div class="section_login">
-        <h3 class="tit_login">로그인</h3>
+        <h3 class="tit_login">아이디 찾기</h3>
         <div class="write_form">
             <div class="write_view_login_view">
 
-                <form method="post" action="/member/login">
-                    <input type="text" name="id" size="20" tabindex="1" placeholder="아이디를 입력해주세요">
-                    <input type="password" name="password" size="20" tabindex="2" placeholder="비밀번호를 입력해주세요">
+                <form method="get" action="/member/find/id">
+                    <input type="text" name="name" size="20" tabindex="1" placeholder="이름을 입력해주세요">
+                    <input type="text" name="email" size="20" tabindex="2" placeholder="이메일을 입력해주세요">
                     <div class="checkbox_save">
                         <div class="login_search">
                             <a class="link" href="./loginFind.html">
@@ -49,17 +31,9 @@
                     </div>
                   
                     <button class="btn_type1" type="submit">
-                        <span class="txt_type">로그인</span>
+                        <span class="txt_type">아이디 찾기</span>
                     </button>
                 </form>
-
-
-                <form action="" name="myForm2">
-                    <a class="btn_type2 btn_member" onclick="join();" href="#none">
-                        <span class="txt_type">회원가입</span>
-                    </a>
-                </form>
-               
 
             </div>
         </div>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.kuly2.member.request.MemberFindIdRequest;
 import com.example.kuly2.member.request.MemberLoginRequest;
 import com.example.kuly2.member.request.MemberRegistRequest;
 
@@ -37,7 +38,7 @@ public class MemberController {
 			model.addAttribute("message", "로그인 성공!");
 		} else {
 			model.addAttribute("message", "로그인 실패!");
-			return "login";
+			return "redirect:/loginFail.html";
 		}
 		return "redirect:/";
 	}
@@ -56,9 +57,19 @@ public class MemberController {
 		return memberService.validateId(id);
 	}
 
-	// @GetMapping("/my")
-	// public String my(HttpSession session) {
-	// 	return
-	// }
+	@GetMapping("/find/id")
+	public String findId(MemberFindIdRequest request, Model model) {
+		String id = memberService.findId(request);
+		if (id == null || id.equals("")) {
+			return "redirect:/findIdFail.html";
+		}
+		model.addAttribute("id", id);
+		return "loginFindResult";
+	}
+
+	@GetMapping("/my")
+	public String my(HttpSession session) {
+		return "myPage";
+	}
 
 }

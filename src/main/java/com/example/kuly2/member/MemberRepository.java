@@ -8,4 +8,6 @@ public interface MemberRepository extends JpaRepository<MemberEntity, String> {
 
 	@Override
 	Optional<MemberEntity> findById(String id);
+
+	Optional<MemberEntity> findByNameAndEmail(String name, String email);
 }

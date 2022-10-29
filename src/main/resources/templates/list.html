@@ -14,26 +14,15 @@
       integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" th:href="@{../static/style.css}" />
-
-    <script src="./script/modal.js" defer></script>
-    <script th:src="@{/../static/script/modal.js}" defer></script>
-    <script src="./script/dropdown.js" defer></script>
-    <script th:src="@{/../static/script/dropdown.js}" defer></script>
-
-    <script src="./script/main-slide.js" defer></script>
-    <script th:src="@{/../static/script/main-slide.js}" defer></script>
-
-
-    <script src="./script/full-slide.js" defer></script>
-    <script th:src="@{/../static/script/full-slide.js}" defer></script>
-
-
-    <script src="./script/half-slide.js" defer></script>
-    <script src="./script/md-category.js" defer></script>
-    <script src="./script/quickmenu.js" defer></script>
-    <script src="./script/timer.js" defer></script>
+    <link rel="stylesheet" href="http://localhost/style.css" />
+    <script src="http://localhost/script/modal.js" defer></script>
+    <script src="http://localhost/script/dropdown.js" defer></script>
+    <script src="http://localhost/script/main-slide.js" defer></script>
+    <script src="http://localhost/script/full-slide.js" defer></script>
+    <script src="http://localhost/script/half-slide.js" defer></script>
+    <script src="http://localhost/script/md-category.js" defer></script>
+    <script src="http://localhost/script/quickmenu.js" defer></script>
+    <script src="http://localhost/script/timer.js" defer></script>
   </head>
   <body>
     <!-- modal -->
@@ -55,14 +44,14 @@
     <header class="header">
       <div class="header-contents">
         <div class="delivery-image">
-          <img src="./assets/delivery.webp" alt="" />
+          <img src="http://localhost/assets/delivery.webp" alt="" />
         </div>
         <ul class="customers-items">
           <li th:if="${name == null}" class="sign-up-item">
-            <a href="./join.html">회원가입</a>
+            <a href="http://localhost/join.html">회원가입</a>
           </li>
           <li th:if="${name == null}" class="sign-in-item">
-            <a href="./login.html">로그인</a>
+            <a href="http://localhost/login.html">로그인</a>
           </li>
           <li th:if="${name != null}" class="sign-up-item">
 <!--            <a th:src="/member/my"><span th:text="${name}"> </span> 님 안녕하세요.</a>-->
@@ -92,7 +81,7 @@
       </div>
 
       <div class="logo-image">
-        <img src="./assets/메인로고.webp" alt="Market Kurly" />
+        <a href="http://localhost"><img src="http://localhost/assets/메인로고.webp" alt="Market Kurly" /></a>
       </div>
 
       <nav class="navbar">
@@ -739,7 +728,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/diet.jpg" alt="" />
+                        <img src="http://localhost/assets/menuimg/diet.jpg" alt="" />
                       </div>
                       <span class="sub-title">식단관리</span>
                     </a>
@@ -747,7 +736,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/breakfast.jpg" alt="" />
+                        <img src="http://localhost/assets/menuimg/breakfast.jpg" alt="" />
                       </div>
                       <span class="sub-title">간편한 아침식사</span>
                     </a>
@@ -755,7 +744,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/best.png" alt="" />
+                        <img src="http://localhost/assets/menuimg/best.png" alt="" />
                       </div>
                       <span class="sub-title">재구매BEST</span>
                     </a>
@@ -763,7 +752,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/3000.png" alt="" />
+                        <img src="http://localhost/assets/menuimg/3000.png" alt="" />
                       </div>
                       <span class="sub-title">3천원의 행복</span>
                     </a>
@@ -771,7 +760,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/mart.jpg" alt="" />
+                        <img src="http://localhost/assets/menuimg/mart.jpg" alt="" />
                       </div>
                       <span class="sub-title">컬리마트</span>
                     </a>
@@ -779,7 +768,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/single.jpg" alt="" />
+                        <img src="http://localhost/assets/menuimg/single.jpg" alt="" />
                       </div>
                       <span class="sub-title">1인가구</span>
                     </a>
@@ -787,7 +776,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/easy.png" alt="" />
+                        <img src="http://localhost/assets/menuimg/easy.png" alt="" />
                       </div>
                       <span class="sub-title">뚝딱! 간편식</span>
                     </a>
@@ -795,7 +784,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/bakery.png" alt="" />
+                        <img src="http://localhost/assets/menuimg/bakery.png" alt="" />
                       </div>
                       <span class="sub-title">베이커리 맛집</span>
                     </a>
@@ -803,7 +792,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/sidedish.jpg" alt="" />
+                        <img src="http://localhost/assets/menuimg/sidedish.jpg" alt="" />
                       </div>
                       <span class="sub-title">반찬가게</span>
                     </a>
@@ -811,7 +800,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/cytogenic.jpg" alt="" />
+                        <img src="http://localhost/assets/menuimg/cytogenic.jpg" alt="" />
                       </div>
                       <span class="sub-title">키토제닉</span>
                     </a>
@@ -819,7 +808,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/vegan.png" alt="" />
+                        <img src="http://localhost/assets/menuimg/vegan.png" alt="" />
                       </div>
                       <span class="sub-title">비건</span>
                     </a>
@@ -827,7 +816,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/offline.png" alt="" />
+                        <img src="http://localhost/assets/menuimg/offline.png" alt="" />
                       </div>
                       <span class="sub-title">오프라인 맛집</span>
                     </a>
@@ -835,7 +824,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/kurly.png" alt="" />
+                        <img src="http://localhost/assets/menuimg/kurly.png" alt="" />
                       </div>
                       <span class="sub-title">컬리가 만든 상품</span>
                     </a>
@@ -843,7 +832,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/only.png" alt="" />
+                        <img src="http://localhost/assets/menuimg/only.png" alt="" />
                       </div>
                       <span class="sub-title">Kurly Only</span>
                     </a>
@@ -851,7 +840,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/kf365.jpg" alt="" />
+                        <img src="http://localhost/assets/menuimg/kf365.jpg" alt="" />
                       </div>
                       <span class="sub-title">KF365</span>
                     </a>
@@ -859,7 +848,7 @@
                   <li>
                     <a href="#">
                       <div class="sub-recommend-image">
-                        <img src="./assets/menuimg/1pt.jpg" alt="" />
+                        <img src="http://localhost/assets/menuimg/1pt.jpg" alt="" />
                       </div>
                       <span class="sub-title">1% Table</span>
                     </a>
@@ -1791,7 +1780,7 @@
       <section class="quick-menu">
         <div class="quick-notice-image">
           <a href="#">
-            <img src="./assets/quick.webp" alt="" />
+            <img src="http://localhost/assets/quick.webp" alt="" />
           </a>
         </div>
 
@@ -1891,27 +1880,27 @@
           <ul class="sns-links">
             <li>
               <a href="#">
-                <img src="./assets/footer-ig.webp" alt="인스타그램" />
+                <img src="http://localhost/assets/footer-ig.webp" alt="인스타그램" />
               </a>
             </li>
             <li>
               <a href="#">
-                <img src="./assets/footer-fb.webp" alt="페이스북" />
+                <img src="http://localhost/assets/footer-fb.webp" alt="페이스북" />
               </a>
             </li>
             <li>
               <a href="#">
-                <img src="./assets/footer-blog.webp" alt="네이버 블로그" />
+                <img src="http://localhost/assets/footer-blog.webp" alt="네이버 블로그" />
               </a>
             </li>
             <li>
               <a href="#">
-                <img src="./assets/footer-post.webp" alt="네이버 포스트" />
+                <img src="http://localhost/assets/footer-post.webp" alt="네이버 포스트" />
               </a>
             </li>
             <li>
               <a href="#">
-                <img src="./assets/footer-ytb.webp" alt="유튜브" />
+                <img src="http://localhost/assets/footer-ytb.webp" alt="유튜브" />
               </a>
             </li>
           </ul>

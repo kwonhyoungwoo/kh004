@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.example.kuly2.member.request.MemberFindIdRequest;
 import com.example.kuly2.member.request.MemberLoginRequest;
 import com.example.kuly2.member.request.MemberRegistRequest;
 
@@ -34,6 +35,11 @@ public class MemberService {
 
 	public boolean validateId(String id) {
 		return memberRepository.existsById(id);
+	}
+
+	public String findId(MemberFindIdRequest request) {
+		MemberEntity member = memberRepository.findByNameAndEmail(request.getName(), request.getEmail()).orElse(new MemberEntity());
+		return member.getId();
 	}
 
 }
