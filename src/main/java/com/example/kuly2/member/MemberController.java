@@ -7,12 +7,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.kuly2.member.request.MemberFindIdRequest;
 import com.example.kuly2.member.request.MemberLoginRequest;
 import com.example.kuly2.member.request.MemberRegistRequest;
+import com.example.kuly2.member.request.MemberUpdateRequest;
 
 import lombok.RequiredArgsConstructor;
 
@@ -69,6 +71,16 @@ public class MemberController {
 
 	@GetMapping("/my")
 	public String my(HttpSession session) {
+		return "myPage";
+	}
+
+	@PostMapping("/update")
+	public String update(HttpSession session, Model model, MemberUpdateRequest request) {
+		String id = (String)session.getAttribute("id");
+		boolean update = memberService.update(id, request);
+
+		model.addAttribute("success", update);
+		session.setAttribute("name", request.getName());
 		return "myPage";
 	}
 

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.kuly2.member.request.MemberFindIdRequest;
 import com.example.kuly2.member.request.MemberLoginRequest;
 import com.example.kuly2.member.request.MemberRegistRequest;
+import com.example.kuly2.member.request.MemberUpdateRequest;
 
 import lombok.RequiredArgsConstructor;
 
@@ -40,6 +41,16 @@ public class MemberService {
 	public String findId(MemberFindIdRequest request) {
 		MemberEntity member = memberRepository.findByNameAndEmail(request.getName(), request.getEmail()).orElse(new MemberEntity());
 		return member.getId();
+	}
+
+	public boolean update(String id, MemberUpdateRequest request) {
+		MemberEntity member = memberRepository.findById(id).orElse(null);
+		if (member == null) {
+			return false;
+		}
+		modelMapper.map(request, member);
+		memberRepository.save(member);
+		return true;
 	}
 
 }
