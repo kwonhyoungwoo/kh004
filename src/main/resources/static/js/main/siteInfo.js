@@ -23,7 +23,7 @@ var positions = [];
 				})
 			}
 		},
-		async:false //동기식처리 : 서버에서 응답을 기다렸다가 응답을 모두 완료하고 다음 로직을 실행시킴. (기본값,true)
+		async:false //동기식처리, 서버에서 응답을 기다렸다가 응답을 모두 완료하고 다음 로직을 실행시킴
 	});
 // 마커 이미지의 이미지 주소입니다
 var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
