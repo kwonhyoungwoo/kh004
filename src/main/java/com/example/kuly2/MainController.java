@@ -18,5 +18,10 @@ public class MainController {
 		}
 		return "/main/index";
 	}
-
+	
+	@GetMapping("/siteInfo")
+	public String info() {
+		return "/main/siteInfo";
+		
+	}
 }
