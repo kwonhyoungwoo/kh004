@@ -6,7 +6,7 @@
   		<div class="footer_top">
   			<ul>
   				<li><a href="/">HOME</a></li>
-  				<li><a href="/">사이트소개</a></li>
+  				<li><a href="/siteInfo">사이트소개</a></li>
   				<li><a href="/">공지사항</a></li>
   				<li><a href="/">이용약관</a></li>
   			</ul>

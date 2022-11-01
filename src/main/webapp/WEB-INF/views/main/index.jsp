@@ -5,8 +5,8 @@
 <%-- 슬라이드 영역 --%>
 	<div class="slide_area">
 		<ul class="slider_container simple-list" id="slider">
-			<li class="slide"><img src="/images/slide_img_1.png"></li>
-			<li class="slide"><img src="/images/slide_img_2.png"></li>	
+			<li class="slide"><img src="/image/slide_img_1.png"></li>
+			<li class="slide"><img src="/image/slide_img_2.png"></li>	
 		</ul>			
 		<a href="#" id="prev"><i class="fa fa-caret-left fa-3x"></i></a>
 		<a href="#" id="next"><i class="fa fa-caret-right fa-3x"></i></a>
@@ -19,7 +19,7 @@
 	<div class="item">
 		<a href="#">
 		<div class="img_box">
-			<img src="/images/123.png">
+			<img src="/image/123.png">
 		</div>
 		<div class="txt_box">
 		  <h4>[HBAF] 매일 색다른 </h4>    
@@ -35,7 +35,7 @@
 	<div class="item">
 		<a href="#">
 		<div class="img_box">
-			<img src="/images/123.png">
+			<img src="/image/123.png">
 		</div>
 		<div class="txt_box">
 		  <h4>name</h4>    

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <%--ICON 불러오기 --%>
@@ -9,15 +9,15 @@
 <%-- 부트스트랩 CSS --%>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <%-- CSS파일 --%>
-<link href="/css/index.css" rel="stylesheet" type="text/css">
-<link href="/css/header.css" rel="stylesheet" type="text/css">
-<link href="/css/footer.css" rel="stylesheet" type="text/css">
+<link href="css/main/index.css" rel="stylesheet" type="text/css">
+<link href="css/main/header.css" rel="stylesheet" type="text/css">
+<link href="css/main/footer.css" rel="stylesheet" type="text/css">
 <%-- jQuery 불러오기 --%>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- JS 파일 -->
-<script type="text/javascript" src="/js/index.js" ></script>
+<script type="text/javascript" src="/js/main/index.js" ></script>
 <meta charset="UTF-8">
-<title>ㅁㅇㅍㅇㅈ</title>
+<title>.</title>
 </head>
 <body>
 	<div id="wrap">
@@ -26,19 +26,24 @@
 			<div id="header_top">
 				<ul class="nav">
 				<%--Session에 따라 로그인, 로그아웃 출력 --%>
-					<li><a href="#">회원가입</a></li>
+				<c:if test="${member == null }">
+					<li><a href="join.html">회원가입</a></li>
 					<li>|</li>
-					<li><a href="#">로그인</a></li>
+					<li><a href="login.html">로그인</a></li>
 					<li>|</li>
-					<li><a href="#">로그아웃</a></li>
+				</c:if>
+				<c:if test="${member != null }">
+					<li>환영합니다! ${name}님 </li>
+					<li><a href="/logout">로그아웃</a></li>
 					<li>|</li>
-					<li><a href="#">고객센터</a></li>
+				</c:if>
+				<li><a href="#">고객센터</a></li>
 				</ul>
 			</div>
 			<%-- 헤더 중간 --%>
 			<div id="header_mid">
 				<h1 class="logo">
-					<a href="/"><img src="/images/logo.png"></a>
+					<a href="/"><img src="/image/logo.png"></a>
 				</h1>
 				<div class="search_box">
 					<form action="#" method="get">
