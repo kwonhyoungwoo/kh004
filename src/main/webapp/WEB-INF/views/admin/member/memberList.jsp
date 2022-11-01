@@ -5,28 +5,17 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ include file="../common/header.jsp" %>
-<head>
 
-    <meta charset="UTF-8">
-    <title>Hello Spring</title>
-    <!-- 부트스트랩관련 라이브러리 -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <style>
+        /*버튼*/
+        input#btn-add{float:right; margin: 0 0 15px;}
+        table tr.table-info:hover{cursor:pointer; color: #a8bdff;}
 
-<style>
-    /*글쓰기버튼*/
-    input#btn-add{float:right; margin: 0 0 15px;}
-    table tr.table-info:hover{cursor:pointer; color: #a8bdff;}
-
-    #board-container {width: 70%; margin: 0 auto; padding-top: 3%;}
-    .table > thead > tr > th {text-align: center;}
-    .table > tbody > tr > td {text-align: center;}
-    .table > tbody > tr > #title {text-align: left;}
-</style>
-
-</head>
-
+        #board-container {width: 70%; margin: 0 auto; padding-top: 3%;}
+        .table > thead > tr > th {text-align: center;}
+        .table > tbody > tr > td {text-align: center;}
+        .table > tbody > tr > #title {text-align: left;}
+    </style>
 
 <section id="board-container" class="container">
 
@@ -36,8 +25,8 @@
         <table id ="tbl-board" class="table table-bordered table-blue">
             <thead>
                 <tr class="table-primary">
-                    <th width="5%">번호</th>
-                    <th width="10%">아이디</th>
+                    <th width="5%" id="title">번호</th>
+                    <th width="10%" >아이디</th>
                     <th width="10%">비밀번호</th>
                     <th width="10%">닉네임</th>
                     <th width="10%">이름</th>
