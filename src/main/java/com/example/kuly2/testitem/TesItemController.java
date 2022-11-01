@@ -19,7 +19,7 @@ public class TesItemController {
 	@GetMapping("/{name}")
 	public String getItem(@PathVariable String name, Model model) {
 		List<TestItem> byNameContains = repository.findByNameContains(name);
-		model.addAttribute("list", byNameContains);
+		model.addAttribute("list", byNameContains); //name?
 		return "list";
 	}
 }
