@@ -54,7 +54,7 @@
                     <th width="10%">상품사진</th>
                     <th width="10%">상품설명</th>
                     <th width="10%">상품 판매량</th>
-                    <th width="10%">상품등록자aaa</th>
+                    <th width="10%">상품등록자</th>
                     <th width="10%">상품등록날짜</th>
                 </tr>
             </thead>
