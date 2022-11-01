@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.kuly2.member.request.MemberFindIdRequest;
+import com.example.kuly2.member.request.MemberFindPasswordRequest;
 import com.example.kuly2.member.request.MemberLoginRequest;
 import com.example.kuly2.member.request.MemberRegistRequest;
+import com.example.kuly2.member.request.MemberUpdateRequest;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,7 +28,7 @@ public class MemberController {
 	@PostMapping
 	public String regist(MemberRegistRequest request) {
 		memberService.regist(request);
-		return "main";
+		return "redirect:/";
 	}
 
 	@PostMapping("/login")
@@ -37,7 +40,7 @@ public class MemberController {
 			model.addAttribute("message", "로그인 성공!");
 		} else {
 			model.addAttribute("message", "로그인 실패!");
-			return "login";
+			return "redirect:/loginFail.html";
 		}
 		return "redirect:/";
 	}
@@ -54,6 +57,44 @@ public class MemberController {
 	public Boolean validateId(@PathVariable String id, HttpSession session) {
 		System.out.println(session.getAttribute("id"));
 		return memberService.validateId(id);
+	}
+
+	@GetMapping("/find/id")
+	public String findId(MemberFindIdRequest request, Model model) {
+		String id = memberService.findId(request);
+		if (id == null || id.equals("")) {
+			return "redirect:/findIdFail.html";
+		}
+		model.addAttribute("id", id);
+		return "loginFindResult";
+	}
+	
+	@GetMapping("/find/password")
+	public String findPassword(MemberFindPasswordRequest request, Model model) {
+		String password = memberService.findPassword(request);
+		if (password ==null || password.equals("")) {
+			return "redirect:/findPasswordFail.html";
+		}
+		model.addAttribute("password", password);
+		return "passwordFindResult";
+		
+	
+}
+	
+
+	@GetMapping("/my")
+	public String my(HttpSession session) {
+		return "myPage";
+	}
+
+	@PostMapping("/update")
+	public String update(HttpSession session, Model model, MemberUpdateRequest request) {
+		String id = (String)session.getAttribute("id");
+		boolean update = memberService.update(id, request);
+
+		model.addAttribute("success", update);
+		session.setAttribute("name", request.getName());
+		return "myPage";
 	}
 
 }
