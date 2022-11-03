@@ -13,17 +13,18 @@
 	<span>${boardDto.createDate }</span>
 	<p>${boardDto.content }</p>
 
-	<%--수정, 삭제 --%>
+	<%--로그인된 아이디랑 작성자가 동일해야 수정, 삭제 가능 --%>
+	<c:if test="${sessionScope.id == boardDto.writer}">
 	<div>
 		<a href="/board/edit/${boardDto.id}">
 			<button>수정</button>
 		</a>
-
 		<form id="delete_form" action="/board/${boardDto.id }" method="post">
 			<input type="hidden" value="delete" />
 			<button id="delete_btn">삭제</button>
 		</form>
 	</div>
+	</c:if>
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>

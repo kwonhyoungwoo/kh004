@@ -6,6 +6,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.kuly2.board.domain.entity.BoardEntity;
@@ -30,7 +31,8 @@ public class BoardService {
 	//전체 게시글
 	@Transactional 
 	public List<BoardDto> getBoardList() {
-		List<BoardEntity> boardEntities = boardRepository.findAll();
+		List<BoardEntity> boardEntities = boardRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+		//Sort를 사용해서 DESC정렬 ""에는 기준컬럼을 넣어주기
 		List<BoardDto> boardDtoList = Arrays.asList(modelMapper.map(boardEntities, BoardDto[].class));
 		//Arrays.asList, 배열 처리후 리스트로 변환하기 
 

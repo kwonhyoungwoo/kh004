@@ -9,6 +9,14 @@
 <title>문의 게시판</title>
 <link href="css/board/board.css" rel="stylesheet" type="text/css">
 </head>
+<script>
+<%-- 비회원은 로그인페이지로 이동됨 --%>
+	var url = '/login.html';
+	if ("${msg}" === "not_login"){
+		alert("로그인이 필요한 서비스입니다.");
+		location.href=url;
+	}
+</script>
 <body>
 	<%@include file="../layouts/header.jsp"%>
 	<a href="/boardPost">글쓰기</a>
