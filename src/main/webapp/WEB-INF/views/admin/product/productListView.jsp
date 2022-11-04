@@ -61,9 +61,7 @@
 </section>
 
 </body>
-<%
-    System.out.println(request.getAttribute("productListView"));
-%>
+
 <%@ include file="../common/footer.jsp" %>
 
 
