@@ -30,17 +30,20 @@ public class ProductService {
         List<ProductEntity> productList = productRepository.findAll();
         // ProductDto로 값을 담기 위해 new ArrayList<>() 선언
         List<ProductDto> productDtos = new ArrayList<>();
-        //반복문으로 productDtos에 모델매퍼로 엔티티에서 가져온 값을 바꿔준다.
+        //반복문으로 productDtos에 모델매퍼로 엔티티에서 가져온 값을 리스트로 바꿔준다.
         for (int i = 0; i < productList.size(); i++)
             productDtos.add(modelMapper.map(productList.get(i), ProductDto.class));
-//
             return productDtos;
         }
 
-    public ProductDto memberListView(){
-        ProductEntity productEntity = productRepository.findById(0).orElse(null);
+    public ProductDto memberListView(int product_no){
+        ProductEntity productEntity = productRepository.findById(product_no).orElse(null);
         ProductDto productDto = modelMapper.map(productEntity, ProductDto.class);
-            return productDto;
+
+//        System.out.println("ProductService - productEntity = " + productEntity);
+//        System.out.println("ProductService - productDto = " + productDto);
+
+        return productDto;
 
         }
 

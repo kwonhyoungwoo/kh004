@@ -2,10 +2,13 @@ package com.example.kuly2.admin.controller;
 
 import com.example.kuly2.admin.Dto.ProductDto;
 import com.example.kuly2.admin.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -16,6 +19,8 @@ import java.util.List;
  */
 @Controller
 public class AdminController {
+
+    Logger logger = LoggerFactory.getLogger(getClass());
 
     private final ProductService productService;
 
@@ -49,11 +54,17 @@ public class AdminController {
         return "admin/product/productList";
     }
 
-    /** 내용 : 관리자 - 상품 목록 리스트 에서 상세목록 조회 페이지 (미완성) */
+    /** 내용 : 관리자 - 상품 목록 리스트 에서 상세목록 조회 페이지 */
     @GetMapping("/admin/productList/productListView")
-    public String memberListView(Model model){
-        ProductDto productListViewDto = productService.memberListView();
+    public String memberListView(@RequestParam("no") int product_no, Model model){
+        ProductDto productListViewDto = productService.memberListView(product_no);
         model.addAttribute("productListView", productListViewDto);
+
+//        System.out.println("Controller product_no =" + product_no);
+//        System.out.println("Controller productListViewDto = " + productListViewDto);
+
         return "admin/product/productListView";
     }
+
+
 }

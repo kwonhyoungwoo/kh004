@@ -36,6 +36,20 @@
         text-align: left;
     }
 </style>
+<script>
+    $(function(){
+        $("tr[no]").on("click",function(){
+            var productNo = $(this).attr("no");
+            console.log("productList.jsp  productNo="+productNo);
+
+
+
+            location.href = "${pageContext.request.contextPath}/admin/productList/productListView?no="+productNo;
+        });
+    });
+
+</script>
+
 
 <body>
 
@@ -53,20 +67,20 @@
                     <th width="10%">상품정보</th>
                     <th width="10%">상품사진</th>
                     <th width="10%">상품설명</th>
-                    <th width="10%">상품 판매량</th>
+                    <th width="10%">상품판매량</th>
                     <th width="10%">상품등록자</th>
                     <th width="10%">상품등록날짜</th>
                 </tr>
             </thead>
             <tbody>
                 <c:forEach items="${productList}" var="product" varStatus="status">
-                    <tr class="table-info">
-                        <td id="id">[${count - status.index}]</td>
+                    <tr no="${product.product_no}" class="table-info">
+                        <td id="id">${count + status.index}</td>
                         <td>${product.product_name}></td>
                         <td>${product.product_price}</td>
                         <td>${product.product_information}</td>
                         <td>${product.product_photo}</td>
-                        <td>${product.product_descrition}</td>
+                        <td>${product.product_description}</td>
                         <td>${product.product_rate}</td>
                         <td>${product.product_adder}</td>
                         <td>${product.product_regdate}</td>
@@ -78,6 +92,7 @@
 
 
 </section>
+
 
 
 <%@ include file="../common/footer.jsp" %>
