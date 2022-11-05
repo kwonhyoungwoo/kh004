@@ -92,5 +92,6 @@ public class MemberController {
 		model.addAttribute("success", update);
 		session.setAttribute("name", request.getName());
 		return "th/myPage";
+		
 	}
 }
