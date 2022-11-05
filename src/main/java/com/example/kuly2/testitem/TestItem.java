@@ -25,4 +25,6 @@ public class TestItem {
 	private Long price;
 
 	private Integer discount;
+
+	private ItemCategory category;
 }
