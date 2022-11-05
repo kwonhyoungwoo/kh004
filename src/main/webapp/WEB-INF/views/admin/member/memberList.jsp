@@ -25,15 +25,16 @@
         <table id ="tbl-board" class="table table-bordered table-blue">
             <thead>
                 <tr class="table-primary">
-                    <th width="5%" id="title">번호</th>
-                    <th width="10%" >아이디</th>
-                    <th width="10%">비밀번호</th>
-                    <th width="10%">닉네임</th>
+                    <th width="5%" id="title"></th> 
+                 <th width="10%" >아이디</th>
+                    <th width="10%" >비밀번호</th>
                     <th width="10%">이름</th>
-                    <th width="10%">전화</th>
-                    <th width="15%">주소</th>
-                    <th width="10%">우편번호</th>
-                    <th width="10%">가입날짜</th>
+                    <th width="10%">이메일</th>
+                    <th width="10%">휴대폰</th>
+                    <th width="10%">주소</th>
+                    <th width="15%">생년월일</th>
+                    <th width="10%">성별</th>
+                    
                 </tr>
             </thead>
             <c:forEach var='member_tb' items="${memberList}">
@@ -41,11 +42,13 @@
                     <td></td>
                     <td>${member_tb.id}</td>
                     <td>${member_tb.password}</td>
-                    <td></td>
                     <td>${member_tb.name}</td>
+                    
+                    <td>${member_tb.email}</td>
                     <td>${member_tb.phone}</td>
                     <td>${member_tb.address}</td>
-                    <td></td>
+                    <td>${member_tb.birth}</td>
+                    <td>${member_tb.gender}</td>
                     <td></td>
                 </tr>
             </c:forEach>
