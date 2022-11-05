@@ -68,19 +68,16 @@ public class MemberController {
 		model.addAttribute("id", id);
 		return "th/loginFindResult";
 	}
-	
+
 	@GetMapping("/find/password")
 	public String findPassword(MemberFindPasswordRequest request, Model model) {
 		String password = memberService.findPassword(request);
-		if (password ==null || password.equals("")) {
+		if (password == null || password.equals("")) {
 			return "redirect:/findPasswordFail.html";
 		}
 		model.addAttribute("password", password);
 		return "th/passwordFindResult";
-		
-	
-}
-	
+	}
 
 	@GetMapping("/my")
 	public String my(HttpSession session) {
@@ -96,5 +93,4 @@ public class MemberController {
 		session.setAttribute("name", request.getName());
 		return "th/myPage";
 	}
-
 }
