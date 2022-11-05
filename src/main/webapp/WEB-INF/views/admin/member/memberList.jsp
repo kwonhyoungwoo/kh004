@@ -36,34 +36,25 @@
                     <th width="10%">가입날짜</th>
                 </tr>
             </thead>
-<%--            <c:forEach var='member_tb' items="${list}">--%>
-<%--                <tr>--%>
-<%--                    <td>${member_tb.no}</td>--%>
-<%--                    <td>${member_tb.id}</td>--%>
-<%--                    <td>${member_tb.password}</td>--%>
-<%--                    <td>${member_tb.nickname}</td>--%>
-<%--                    <td>${member_tb.name}</td>--%>
-<%--                    <td>${member_tb.phone}</td>--%>
-<%--                    <td>${member_tb.address}</td>--%>
-<%--                    <td>${member_tb.zip_code}</td>--%>
-<%--                    <td>${fn:substring(member_tb.joindateS,0,10)}</td>--%>
-<%--                </tr>--%>
-<%--            </c:forEach>--%>
+            <c:forEach var='member_tb' items="${memberList}">
+                <tr>
+                    <td></td>
+                    <td>${member_tb.id}</td>
+                    <td>${member_tb.password}</td>
+                    <td></td>
+                    <td>${member_tb.name}</td>
+                    <td>${member_tb.phone}</td>
+                    <td>${member_tb.address}</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </c:forEach>
+            <tbody>
             <tbody>
 
 
 <%--            <c:forEach var='member_tb' items="${list}">--%>
-                <tr class="table-info">
-                    <td>1111</td>
-                    <td id="id">2222</td>
-                    <td>3333</td>
-                    <td>4444</td>
-                    <td>5555</td>
-                    <td>6666</td>
-                    <td>7777</td>
-                    <td>8888</td>
-                    <td>9999</td>
-                </tr>
+
             <%--            </c:forEach>--%>
             </tbody>
 

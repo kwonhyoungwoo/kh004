@@ -33,6 +33,8 @@ public class BoardEntity {
 //	@ManyToOne // 단방향
 //	@JoinColumn(name = "board_writer")
 //	private MemberEntity writer; // 작성자
+
+	private String userId;
 	
 	private String writer;
 
@@ -50,12 +52,13 @@ public class BoardEntity {
 
 	@Builder
 	public BoardEntity(Long id, String title, String writer, String content, LocalDate createDate, String reply,
-			char replyCheck) {
+			char replyCheck, String userId) {
 		this.id = id;
 		this.title = title;
 		this.writer = writer;
 		this.content = content;
 		this.createDate = LocalDate.now();
+		this.userId = userId;
 //		this.reply = reply;
 //		this.replyCheck = replyCheck;
 	}

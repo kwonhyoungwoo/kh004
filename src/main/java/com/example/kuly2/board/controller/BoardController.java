@@ -31,8 +31,11 @@ public class BoardController {
 	}
 	
 	//게시글 작성페이지
+	// 회원 인증 추가
 	@GetMapping("/boardPost")
-	public String write() {
+	public String write(HttpSession session, Model model) {
+		model.addAttribute("id", session.getAttribute("id"));
+		model.addAttribute("name", session.getAttribute("name"));
 		return "/board/write";
 	}
 	

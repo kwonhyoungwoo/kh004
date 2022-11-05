@@ -12,7 +12,8 @@
 		<input type="hidden" name="_method" value="put" /> <input
 			type="hidden" name="id" value="${boardDto.id }" /> 제목 : <input
 			type="text" name="title" value="${boardDto.title }"> <br>
-		작성자 : <input name="writer" value="${boardDto.writer }"><br>
+		작성자 ID: <input name="userId" value="${boardDto.userId }"><br>
+		작성자 이름: <input name="writer" value="${boardDto.writer }"><br>
 		<textarea name="content">${boardDto.content }</textarea>
 		<br> <input type="submit" value="수정">
 	</form>

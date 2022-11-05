@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.example.kuly2.board.domain.entity.BoardEntity;
 import com.example.kuly2.board.domain.repository.BoardRepository;
 import com.example.kuly2.board.dto.BoardDto;
+import com.example.kuly2.member.MemberEntity;
 
 import lombok.AllArgsConstructor;
 

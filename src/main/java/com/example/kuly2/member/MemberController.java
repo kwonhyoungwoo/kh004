@@ -66,7 +66,7 @@ public class MemberController {
 			return "redirect:/findIdFail.html";
 		}
 		model.addAttribute("id", id);
-		return "loginFindResult";
+		return "th/loginFindResult";
 	}
 	
 	@GetMapping("/find/password")
@@ -76,7 +76,7 @@ public class MemberController {
 			return "redirect:/findPasswordFail.html";
 		}
 		model.addAttribute("password", password);
-		return "passwordFindResult";
+		return "th/passwordFindResult";
 		
 	
 }
@@ -84,7 +84,7 @@ public class MemberController {
 
 	@GetMapping("/my")
 	public String my(HttpSession session) {
-		return "myPage";
+		return "th/myPage";
 	}
 
 	@PostMapping("/update")
@@ -94,7 +94,7 @@ public class MemberController {
 
 		model.addAttribute("success", update);
 		session.setAttribute("name", request.getName());
-		return "myPage";
+		return "th/myPage";
 	}
 
 }

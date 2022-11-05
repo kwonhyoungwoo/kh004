@@ -9,7 +9,8 @@
 <body>
 	<%@include file="../layouts/header.jsp"%>
 	<h2>${boardDto.title }</h2>
-	<h5>작성자 ${boardDto.writer }</h5>
+	<h5>작성자 ID: ${boardDto.userId }</h5>
+	<h5>작성자 이름:  ${boardDto.writer }</h5>
 	<span>${boardDto.createDate }</span>
 	<p>${boardDto.content }</p>
 
