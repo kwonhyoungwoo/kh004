@@ -11,15 +11,13 @@
 </head>
 <script>
 <%-- 비회원은 로그인페이지로 이동됨 --%>
-	var url = '/login.html';
 	if ("${msg}" === "not_login"){
 		alert("로그인이 필요한 서비스입니다.");
-		location.href=url;
+		location.href="/login.html";
 	}
 </script>
 <body>
 	<%@include file="../layouts/header.jsp"%>
-	<a href="/boardPost">글쓰기</a>
 	<table>
 		<thead>
 			<tr>
@@ -40,6 +38,15 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<button onclick="location.href='/boardPost'">글쓰기</button>
+	
+
+	<%-- 페이징 처리 --%>
+	<div>
+		<c:forEach var='pageNum' items="${pageList }">
+			<a href="?page= + ${pageNum}">${pageNum }</a>
+		</c:forEach>
+	</div>
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>
