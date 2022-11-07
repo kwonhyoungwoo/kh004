@@ -58,7 +58,7 @@
 				</div>
 				<div class="cart">
 					<ul>
-						<li><a href="#"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
+						<li><a href="./th/myPage.html"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
 					</ul>
 				</div>
 			</div>
