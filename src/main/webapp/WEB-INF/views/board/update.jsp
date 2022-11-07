@@ -13,18 +13,25 @@
 			edit_form.submit();
 		} 
 	}
+	function canceledit(){
+		if (confirm("수정한 내용이 저장되지 않습니다. 계속 진행하겠습니까?")){
+			location.href="/board/${boardDto.id}"
+		}
+	}
 </script>
 </head>
 <body>
 	<%@include file="../layouts/header.jsp"%>
 	<form id="edit_form" action="/board/edit/${boardDto.id }" method="post" onclick="return false">
-		<input type="hidden" name="id" value="${boardDto.id }"> 
-		제목 : <input type="text" name="title" value="${boardDto.title }"> <br>
-		작성자 <input type ="hidden" name="writer" value="${boardDto.writer }"> ${boardDto.writer } <br>
-		<textarea name="content">${boardDto.content }</textarea>
-		<br> <button onclick="editBoard()">수정</button>
+		<input type="hidden" name="id" value="${boardDto.id }" /> 
+		제목 <input type="text" name="title" value="${boardDto.title }"> <br>
+		작성자 ${boardDto.userId } (${boardDto.writer })
+		<input type= "hidden" name="userId" value="${boardDto.userId }"> 
+		<input type= "hidden" name="writer" value="${boardDto.writer }"> <br>
+		<textarea name="content">${boardDto.content }</textarea> <br> 
+		<button onclick="editBoard()">수정</button>
 	</form>
-	<a href="/board/${boardDto.id}">취소</a>
+	<button onclick="canceledit()">취소</button>
 	<button onclick="location.href='/board'">글목록</button>
 	<%@include file="../layouts/footer.jsp"%>
 </body>

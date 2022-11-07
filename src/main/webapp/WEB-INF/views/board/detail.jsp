@@ -17,12 +17,12 @@
 <body>
 	<%@include file="../layouts/header.jsp"%>
 	<h2>${boardDto.title }</h2>
-	<h5>작성자 ${boardDto.writer }</h5>
+	<h5>작성자 ${boardDto.userId } (${boardDto.writer })</h5>
 	<span>${boardDto.createDate }</span>
 	<p>${boardDto.content }</p>
 	<button onclick="location.href='/board'">글목록</button>
 	<%--로그인된 아이디랑 작성자가 동일해야 수정, 삭제 가능 --%>
-	<c:if test="${sessionScope.id == boardDto.writer}">
+	<c:if test="${sessionScope.id == boardDto.userId}">
 		<div>
 			<button onclick="location.href='/board/edit/${boardDto.id}'">수정</button>
 			<%-- onsubmit에 return false 값을 넣어서 button를 눌러도 action이 실행되지 않게함 --%>

@@ -25,8 +25,10 @@ public class BoardEntity {
 	@GeneratedValue
 	@Column(name = "board_id")
 	private Long id;
-	
-	private String writer;
+
+	private String userId; //회원 아이디
+
+	private String writer;	//작성자 (회원 이름)
 	
 	private String title; // 글제목
 	
@@ -36,12 +38,14 @@ public class BoardEntity {
 	private LocalDate createDate; // 작성일자
 
 	@Builder
-	public BoardEntity(Long id, String title, String writer, String content, LocalDate createDate) {
+	public BoardEntity(Long id, String title, String writer, String content, LocalDate createDate, String userId) {
+
 		this.id = id;
 		this.title = title;
 		this.writer = writer;
 		this.content = content;
 		this.createDate = LocalDate.now();
+		this.userId = userId;
 	}
 
 }

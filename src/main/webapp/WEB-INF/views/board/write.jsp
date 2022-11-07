@@ -18,8 +18,8 @@
 	<%@include file="../layouts/header.jsp"%>
 	<form id="post_Form" action="/boardPost" method="post">
 		제목 <input type="text" name="title" placeholder="제목을 작성해주세요" value=${boardDto.title }> ${valid_title }<br> 
-		작성자 <input type="hidden" name="writer" value="${boardDto.writer }"> ${id }<br>
-		<textarea name="content" placeholder="내용을 작성해주세요" >${boardDto.content }</textarea> ${valid_content }
+		작성자 ${id } (${name }) <input type="hidden" name="userId" value="${id }"> <input type="hidden" name="writer" value="${name }"> <br>
+		<textarea name="content" placeholder="문의 내용을 작성해주세요" >${boardDto.content }</textarea> ${valid_content }
 		<br> <button onclick="saveBoard()">등록</button>
 	</form>
 	<button onclick="cancelBoard()">취소</button>

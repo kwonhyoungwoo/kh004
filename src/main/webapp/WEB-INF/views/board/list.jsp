@@ -10,10 +10,14 @@
 <link href="css/board/board.css" rel="stylesheet" type="text/css">
 </head>
 <script>
-<%-- 비회원은 로그인페이지로 이동됨 --%>
-	if ("${msg}" === "not_login"){
-		alert("로그인이 필요한 서비스입니다.");
-		location.href="/login.html";
+<%-- 비회원은 문의하기 접근시 로그인페이지로 이동됨 --%>
+	function notMember(){
+		if ("${msg}" === "not_login"){
+			alert("로그인이 필요한 서비스입니다.");
+			location.href="/login.html";
+		} else{
+			location.href="/boardPost";
+		} 
 	}
 </script>
 <body>
@@ -32,15 +36,14 @@
 				<tr>
 					<td>${board.id}</td>
 					<td><a href="/board/${board.id}">${board.title}</a></td>
-					<td>${board.writer}</td>
+					<td>${board.userId}</td>
 					<td>${board.createDate}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	<button onclick="location.href='/boardPost'">글쓰기</button>
+	<button onclick="notMember()">문의 하기</button>
 	
-
 	<%-- 페이징 처리 --%>
 	<div>
 		<c:forEach var='pageNum' items="${pageList }">

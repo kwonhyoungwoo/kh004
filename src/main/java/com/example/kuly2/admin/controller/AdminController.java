@@ -2,6 +2,8 @@ package com.example.kuly2.admin.controller;
 
 import com.example.kuly2.admin.Dto.ProductDto;
 import com.example.kuly2.admin.service.ProductService;
+import com.example.kuly2.member.MemberService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +20,11 @@ import java.util.List;
 public class AdminController {
 
     private final ProductService productService;
+    private final MemberService memberService;
 
-    public AdminController(ProductService productService) {
+    public AdminController(ProductService productService, MemberService memberService) {
         this.productService = productService;
+        this.memberService = memberService;
     }
 
     /** 내용 : 관리자 - 메인 페이지  */
@@ -30,8 +34,11 @@ public class AdminController {
     }
 
     /** 내용 : 관리자 - 회원리스트 조회 뷰  */
+    // TODO 함수이름 재설정 필요 (이름이 겹칩니다.)
     @RequestMapping("/admin/memberList")
-    public String memberListView(){
+    public String memberListView2(Model model){
+        // model에 모든 멤버 정보 추가
+        model.addAttribute("memberList", memberService.getAllMembers());
         return "admin/member/memberList";
     }
 

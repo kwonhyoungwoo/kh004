@@ -1,5 +1,7 @@
 package com.example.kuly2.member;
 
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -56,6 +58,11 @@ public class MemberService {
 		modelMapper.map(request, member);
 		memberRepository.save(member);
 		return true;
+	}
+
+	// 모든 멤버 조회기능 추가
+	public List<MemberEntity> getAllMembers() {
+		return memberRepository.findAll();
 	}
 
 }

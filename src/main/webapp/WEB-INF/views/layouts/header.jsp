@@ -35,8 +35,8 @@
 							<li>|</li>
 						</c:when>
 						<c:otherwise>
-								<li>환영합니다! ${name}님</li>
-								<li><a href="/logout">로그아웃</a></li>
+							<li><a href="http://localhost/member/my">환영합니다! ${name}님</a></li>
+								<li><a href="/member/logout">로그아웃</a></li>
 								<li>|</li>
 						</c:otherwise>
 					</c:choose>

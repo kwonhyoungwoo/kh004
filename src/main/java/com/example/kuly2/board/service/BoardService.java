@@ -27,7 +27,7 @@ public class BoardService {
 	
 	private BoardRepository boardRepository;
 	private ModelMapper modelMapper;
-	private static final int BLOCK_PAGE_NUM_COUNT = 10; //블럭에 존재하는 페이지 수 
+	private static final int BLOCK_PAGE_NUM_COUNT = 5; //블럭에 존재하는 페이지 수 
 	private static final int PAGE_BOARD_COUNT = 10;	// 한 페이지에 존재하는 게시글 수 
 	
 	//등록, 수정

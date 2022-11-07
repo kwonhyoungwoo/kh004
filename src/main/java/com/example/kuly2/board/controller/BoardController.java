@@ -42,12 +42,14 @@ public class BoardController {
 	}
 
 	// 게시글 작성페이지
+	// 회원 인증 추가
 	@GetMapping("/boardPost")
-	public String write(HttpSession session, BoardDto boardDTO, Model model) {
-		// 로그인된 회원 id를 작성자에 넘겨서 자동으로 등록
-		String writer = (String) session.getAttribute("id");
-		boardDTO.setWriter(writer);
+	public String write(HttpSession session, Model model) {
+		model.addAttribute("id", session.getAttribute("id"));
+		model.addAttribute("name", session.getAttribute("name"));
+		
 		return "/board/write";
+	
 	}
 
 	// 게시글 등록
@@ -86,7 +88,7 @@ public class BoardController {
 
 	// 게시글 수정
 	@PostMapping("/board/edit/{id}")
-	public String update(@Valid BoardDto boardDTO, Errors errors, Model model) {
+	public String update(BoardDto boardDTO, Model model) {
 		boardService.saveBoard(boardDTO);
 		return "redirect:/board";
 	}
