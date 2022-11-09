@@ -2,7 +2,7 @@ package com.example.kuly2.member.request;
 
 import lombok.Getter;
 import lombok.Setter;
-
+// 저장소
 @Getter
 @Setter
 public class MemberRegistRequest {

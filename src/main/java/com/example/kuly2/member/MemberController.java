@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/member")
 public class MemberController {
 
-	private final MemberService memberService;
+	private final MemberService memberService; //?
 
 	@PostMapping
 	public String regist(MemberRegistRequest request) {
@@ -36,7 +36,7 @@ public class MemberController {
 		MemberEntity member = memberService.login(request);
 		if (member != null) {
 			session.setAttribute("id", member.getId());
-			session.setAttribute("name", member.getName());
+			session.setAttribute("name", member.getName());  //왜 2개나?
 			model.addAttribute("message", "로그인 성공!");
 		} else {
 			model.addAttribute("message", "로그인 실패!");
@@ -62,7 +62,7 @@ public class MemberController {
 	@GetMapping("/find/id")
 	public String findId(MemberFindIdRequest request, Model model) {
 		String id = memberService.findId(request);
-		if (id == null || id.equals("")) {
+		if (id == null || id.equals("")) { //id.equls""?
 			return "redirect:/findIdFail.html";
 		}
 		model.addAttribute("id", id);
