@@ -1,4 +1,4 @@
-package com.example.kuly2.admin.entity;
+package com.example.kuly2.admin.Dto;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
