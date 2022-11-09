@@ -1,4 +1,4 @@
-package com.example.kuly2.admin.Dto;
+package com.example.kuly2.admin.entity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
