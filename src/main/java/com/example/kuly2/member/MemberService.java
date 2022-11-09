@@ -22,7 +22,7 @@ public class MemberService {
 	
 	//memberentity 저장
 	public MemberEntity regist(MemberRegistRequest request) {
-		MemberEntity member = modelMapper.map(request, MemberEntity.class);
+		MemberEntity member = modelMapper.map(request, MemberEntity.class); //meberentity.class?
 		return memberRepository.save(member);  // ?
 	}
 // 로그인

@@ -87,7 +87,7 @@ public class MemberController {
 	@PostMapping("/update")
 	public String update(HttpSession session, Model model, MemberUpdateRequest request) {
 		String id = (String)session.getAttribute("id");
-		boolean update = memberService.update(id, request);
+		boolean update = memberService.update(id, request); //?b?
 
 		model.addAttribute("success", update);
 		session.setAttribute("name", request.getName());
