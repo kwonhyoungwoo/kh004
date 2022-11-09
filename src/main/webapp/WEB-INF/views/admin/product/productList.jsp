@@ -51,8 +51,12 @@
 
 <section id="board-container" class="container">
 
-    <h2> 상품목록 조회 / 수정 </h2>
-
+    <h2> 상품 추가 </h2>
+    <tr>
+        <td colspan="6" class="text-end">
+            <input type="button" class="btn btn-warning" value="상품추가" onclick="location.href='/admin/productList/productListInsert'">
+        </td>
+    </tr>
     <div align="center">
         <table id="tbl-board" class="table table-bordered table-blue">
             <thead>
