@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <%--ICON 불러오기 --%>
@@ -9,13 +10,13 @@
 <%-- 부트스트랩 CSS --%>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <%-- CSS파일 --%>
-<link href="css/main/index.css" rel="stylesheet" type="text/css">
-<link href="css/main/header.css" rel="stylesheet" type="text/css">
-<link href="css/main/footer.css" rel="stylesheet" type="text/css">
+<link href="/css/main/index.css" rel="stylesheet" type="text/css">
+<link href="/css/main/header.css" rel="stylesheet" type="text/css">
+<link href="/css/main/footer.css" rel="stylesheet" type="text/css">
 <%-- jQuery 불러오기 --%>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- JS 파일 -->
-<script type="text/javascript" src="/js/main/index.js" ></script>
+<script type="text/javascript" src="/js/main/index.js"></script>
 <meta charset="UTF-8">
 <title>.</title>
 </head>
@@ -25,19 +26,21 @@
 			<%-- 헤더 윗부분 --%>
 			<div id="header_top">
 				<ul class="nav">
-				<%--Session에 따라 로그인, 로그아웃 출력 --%>
-				<c:if test="${member == null }">
-					<li><a href="join.html">회원가입</a></li>
-					<li>|</li>
-					<li><a href="login.html">로그인</a></li>
-					<li>|</li>
-				</c:if>
-				<c:if test="${member != null }">
-					<li>환영합니다! ${name}님 </li>
-					<li><a href="/logout">로그아웃</a></li>
-					<li>|</li>
-				</c:if>
-				<li><a href="#">고객센터</a></li>
+					<%--Session에 따라 로그인, 로그아웃 출력 --%>
+					<c:choose>
+						<c:when test="${name == null }">
+							<li><a href="join.html">회원가입</a></li>
+							<li>|</li>
+							<li><a href="login.html">로그인</a></li>
+							<li>|</li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="http://localhost/member/my">환영합니다! ${name}님</a></li>
+								<li><a href="/member/logout">로그아웃</a></li>
+								<li>|</li>
+						</c:otherwise>
+					</c:choose>
+					<li><a href="/board">고객센터</a></li>
 				</ul>
 			</div>
 			<%-- 헤더 중간 --%>
@@ -47,13 +50,15 @@
 				</h1>
 				<div class="search_box">
 					<form action="#" method="get">
-						<input name="" class="" type="search" placeholder="검색어를 입력해주세요"> 
-						<button type="submit"><i class="fa fa-search"></i></button>
-					</form>	
+						<input name="" class="" type="search" placeholder="검색어를 입력해주세요">
+						<button type="submit">
+							<i class="fa fa-search"></i>
+						</button>
+					</form>
 				</div>
 				<div class="cart">
 					<ul>
-						<li><a href="#"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
+						<li><a href="./th/myPage.html"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
 					</ul>
 				</div>
 			</div>
@@ -64,12 +69,11 @@
 						<li><a href="#"><i class="fa fa-list"></i>전체 카테고리</a>
 							<div class="sub_menu_1">
 								<ul>
-									<li><a href="#">야채</a></li>
-									<li><a href="#">과일</a></li>
+									<li><a href="/test-item/regist/Fruit">과일</a></li>
+									<li><a href="/test-item/regist/Snack">간식</a></li>
 									<li><a href="#">간식</a></li>
 								</ul>
-							</div>
-						</li>	
+							</div></li>
 						<li><a href="#">전체 상품</a></li>
 						<li><a href="#">베스트</a></li>
 						<li><a href="#">알뜰상품</a></li>
