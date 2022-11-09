@@ -32,41 +32,35 @@ public class AppConfig {
 					.name("사과")
 					.price(10000L)
 					.discount(10)
-					.category(ItemCategory.Fruit)
 					.build());
 
 				repository.save(TestItem.builder()
 					.name("사과")
 					.price(1000L)
 					.discount(20)
-					.category(ItemCategory.Snack)
 					.build());
 
 				repository.save(TestItem.builder()
 					.name("감사과")
 					.price(30000L)
 					.discount(50)
-					.category(ItemCategory.Fruit)
 					.build());
 
 				repository.save(TestItem.builder()
 					.name("수박사과")
 					.price(1000000L)
 					.discount(3)
-					.category(ItemCategory.Fruit)
 					.build());
 
 				repository.save(TestItem.builder()
 					.name("자동차사과")
 					.price(1000000000L)
 					.discount(20)
-					.category(ItemCategory.Fruit)
 					.build());
 
 				repository.save(TestItem.builder()
 					.name("사과사과")
 					.price(10500L)
-					.category(ItemCategory.Snack)
 					.discount(20)
 					.build());
 			}
