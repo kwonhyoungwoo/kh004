@@ -9,12 +9,6 @@
     div#board-container{width:1000px; margin:0 auto; text-align:center;}
     div#board-container{margin-top:40px;}
 </style>
-
-<script>
-    // console.log(request.getParameter("productListView"));
-    console.log("${productListView}");
-</script>
-
 <body>
 
 <title> 상품목록 - 상세보기</title>
@@ -52,9 +46,9 @@
         </table>
         <tr>
             <td colspan="6" class="text-center">
-                <input type="button" class="btn btn-warning" value="수정하기" onclick="">
-                <input type="button" class="btn btn-danger" value="삭제하기" onclick="">
-                <input type="button" class="btn btn-primary" value="목록보기" onclick="location.href='productList'">
+                <input type="button" class="btn btn-warning" value="수정하기" onclick="location.href='/admin/productList/productListViewUpdate?no=${productListView.product_no}'">
+                <input type="button" class="btn btn-danger" value="삭제하기" onclick="location.href='/admin/productList/productDelete?no=${productListView.product_no}'">
+                <input type="button" class="btn btn-primary" value="목록보기" onclick="location.href='/admin/productList'">
             </td>
         </tr>
     </div>

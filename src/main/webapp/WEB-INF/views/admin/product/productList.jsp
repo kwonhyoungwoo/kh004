@@ -40,11 +40,7 @@
     $(function(){
         $("tr[no]").on("click",function(){
             var productNo = $(this).attr("no");
-            console.log("productList.jsp  productNo="+productNo);
-
-
-
-            location.href = "${pageContext.request.contextPath}/admin/productList/productListView?no="+productNo;
+            location.href = "/admin/productList/productListView?no="+productNo;
         });
     });
 

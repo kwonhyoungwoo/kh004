@@ -12,9 +12,11 @@ import java.util.Optional;
  */
 
 public interface ProductRepository extends JpaRepository<ProductEntity, Integer> {
-
+    /**  */
     List<ProductEntity> findAll();
-
+    /**  */
     Optional<ProductEntity> findById(int product_no);
+
+//    ProductEntity<> save(ProductEntity ProductEntity);
 
 }
