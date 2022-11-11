@@ -1,8 +1,14 @@
 package com.example.kuly2.member;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import com.example.kuly2.testitem.TestItem;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,5 +48,8 @@ public class MemberEntity {
 
 	@Column(name = "address")
 	private String address;
+
+	@ManyToMany
+	private List<TestItem> itemList = new ArrayList<>();
 
 }

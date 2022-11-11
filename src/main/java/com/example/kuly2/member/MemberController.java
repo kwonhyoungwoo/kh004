@@ -92,6 +92,14 @@ public class MemberController {
 		model.addAttribute("success", update);
 		session.setAttribute("name", request.getName());
 		return "th/myPage";
-		
+
+	}
+
+	@GetMapping("/item")
+	public String myItem(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("id");
+		MemberEntity member = memberService.findById(id);
+		model.addAttribute("list", member.getItemList());
+		return "th/ItemList";
 	}
 }

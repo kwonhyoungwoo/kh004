@@ -40,15 +40,16 @@ public class MemberService {
 	}
 
 	public String findId(MemberFindIdRequest request) {
-		MemberEntity member = memberRepository.findByNameAndEmail(request.getName(), request.getEmail()).orElse(new MemberEntity());
+		MemberEntity member = memberRepository.findByNameAndEmail(request.getName(), request.getEmail())
+			.orElse(new MemberEntity());
 		return member.getId();
 	}
-	
+
 	public String findPassword(MemberFindPasswordRequest request) {
-		MemberEntity member = memberRepository.findByNameAndId(request.getName(), request.getId()).orElse(new MemberEntity());
+		MemberEntity member = memberRepository.findByNameAndId(request.getName(), request.getId())
+			.orElse(new MemberEntity());
 		return member.getPassword();
 	}
-	
 
 	public boolean update(String id, MemberUpdateRequest request) {
 		MemberEntity member = memberRepository.findById(id).orElse(null);
@@ -63,6 +64,10 @@ public class MemberService {
 	// 모든 멤버 조회기능 추가
 	public List<MemberEntity> getAllMembers() {
 		return memberRepository.findAll();
+	}
+
+	public MemberEntity findById(String id) {
+		return memberRepository.findById(id).orElse(null);
 	}
 
 }

@@ -2,6 +2,8 @@ package com.example.kuly2.testitem;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.kuly2.member.MemberEntity;
+import com.example.kuly2.member.MemberRepository;
+
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -17,6 +22,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TesItemController {
 	private final TestItemRepository repository;
+	private final MemberRepository memberRepository;
 	private final ModelMapper modelMapper;
 
 	@GetMapping("/{name}")
@@ -44,5 +50,19 @@ public class TesItemController {
 		repository.save(item);
 		model.addAttribute("list", repository.findByCategory(item.getCategory()));
 		return "th/ItemList";
+	}
+
+	@GetMapping("buy/{id}")
+	public String buyItem(@PathVariable String id, HttpSession session) {
+		TestItem testItem = repository.findById(Long.parseLong(id)).orElse(null);
+		String memberId = (String)session.getAttribute("id");
+		if (testItem != null) {
+			MemberEntity member = memberRepository.findById(memberId).orElse(null);
+			if (member != null) {
+				member.getItemList().add(testItem);
+				memberRepository.save(member);
+			}
+		}
+		return "/main/index";
 	}
 }
