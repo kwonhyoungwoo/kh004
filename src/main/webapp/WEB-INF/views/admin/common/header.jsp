@@ -29,7 +29,7 @@
                 <ul class="navbar-nav mx-auto" >
                     <li class="nav-item"><a class="nav-link" href="/admin/memberList">회원목록-조회/수정</a></li>
                     <li class="nav-item"><a class="nav-link" href="/admin/productList">상품목록-조회/수정</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Untitled</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin/board">회원문의-조회/등록</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Untitled</a></li>
                     <li class="nav-item"><a class="nav-link" href="/admin/adminLogin">로그인(임시)</a></li>
                 </ul>

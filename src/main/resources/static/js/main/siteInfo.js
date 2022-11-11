@@ -12,7 +12,7 @@ var positions = [];
 	$.ajax({
 		method: "GET",
 		url: "https://dapi.kakao.com/v2/local/search/keyword",
-		data: {query: "마켓컬리"},
+		data: {query: "컬리물류"},
 		headers: {Authorization : "KakaoAK f7beed66fc9fa9e642f68c61403c55c4"},
 		success: function (map){
 //			console.log(map);
