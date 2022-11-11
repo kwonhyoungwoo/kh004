@@ -22,6 +22,8 @@ public class MemberService {
 
 	//memberentity 저장
 	public MemberEntity regist(MemberRegistRequest request) {
+		// modelMapper.map(1, 2);
+		// 1번으 객체를 2번타입으로 바꿔주겠다
 		MemberEntity member = modelMapper.map(request, MemberEntity.class); //meberentity.class?
 		return memberRepository.save(member);  // ?
 	}

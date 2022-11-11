@@ -36,7 +36,7 @@ public class MemberController {
 		MemberEntity member = memberService.login(request);
 		if (member != null) {
 			session.setAttribute("id", member.getId());
-			session.setAttribute("name", member.getName());  //왜 2개나?
+			session.setAttribute("name", member.getName());  //왜 2개나? // ~~님 환영합니다 이름!
 			model.addAttribute("message", "로그인 성공!");
 		} else {
 			model.addAttribute("message", "로그인 실패!");
@@ -62,7 +62,7 @@ public class MemberController {
 	@GetMapping("/find/id")
 	public String findId(MemberFindIdRequest request, Model model) {
 		String id = memberService.findId(request);
-		if (id == null || id.equals("")) { //id.equls""?
+		if (id == null || id.equals("")) { //id.equls""? => 빈칸
 			return "redirect:/findIdFail.html";
 		}
 		model.addAttribute("id", id);
