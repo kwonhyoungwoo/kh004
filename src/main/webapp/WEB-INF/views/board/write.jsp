@@ -18,7 +18,7 @@ function cancelBoard() {
 <body>
 	<h5 class="list_title">문의 등록</h5>
 	<div class="write_wrap">
-		<form id="post_Form" action="/boardPost" method="post">
+		<form id="post_Form" action="/board/post" method="post">
 			<div class="row mb-3">
 				<label for="inputEmail3" class="col-sm-2 col-form-label">제목</label>
 				<div class="col-sm-10">

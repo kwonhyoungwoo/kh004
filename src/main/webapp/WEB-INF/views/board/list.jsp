@@ -16,7 +16,7 @@
 		<c:when test="${empty boardList }">
 			<div class="empty_wrap">
 				<p>등록된 글이 없습니다.</p>
-				<p>도움이 필요하신가요? <button class="btn btn-primary btn-sm" onclick="location.href='/boardPost'">문의 하기</button> </p> 
+				<p>도움이 필요하신가요? <button class="btn btn-primary btn-sm" onclick="location.href='/board/post'">문의 하기</button> </p> 
 				
 			</div>
 		</c:when>
@@ -51,7 +51,7 @@
 						</c:forEach>
 					</tbody>
 				</table>
-				<button class="post_button btn btn-primary btn-sm" onclick="location.href='/boardPost'">문의 하기</button> <br>
+				<button class="post_button btn btn-primary btn-sm" onclick="location.href='/board/post'">문의 하기</button> <br>
 			</div>
 			
 			<%-- 페이징 처리 --%>

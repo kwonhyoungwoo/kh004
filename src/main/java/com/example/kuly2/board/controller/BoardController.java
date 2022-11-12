@@ -45,7 +45,7 @@ public class BoardController {
 
 	// 게시글 작성페이지
 	// 회원 인증 추가
-	@GetMapping("/boardPost")
+	@GetMapping("/board/post")
 	public String write(HttpSession session, Model model) {
 		model.addAttribute("id", session.getAttribute("id"));
 		model.addAttribute("name", session.getAttribute("name"));
@@ -55,7 +55,7 @@ public class BoardController {
 	}
 
 	// 게시글 등록
-	@PostMapping("/boardPost")
+	@PostMapping("/board/post")
 	public String write(@Valid BoardDto boardDTO, Errors errors, Model model) {
 		if (errors.hasErrors()) {
 			model.addAttribute("boardDto", boardDTO); // 글 등록 실패시 입력 값 유지

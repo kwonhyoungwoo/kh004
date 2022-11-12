@@ -88,7 +88,7 @@ function deleteRep() {
 				</div>
 				<hr>
 			</c:forEach>
-			<form action="/admin/repWrite/${boardDto.id }" method="post">
+			<form action="/admin/rep/write/${boardDto.id }" method="post">
 				<div>
 					<textarea name="content" class="form-control" placeholder="내용을 작성해주세요." rows="2"></textarea>
 					<button type="submit" class="admin_repPost btn btn-secondary update-btn btn-sm">답변등록</button>
