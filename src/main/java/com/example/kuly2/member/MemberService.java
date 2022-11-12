@@ -25,7 +25,7 @@ public class MemberService {
 		// modelMapper.map(1, 2);
 		// 1번으 객체를 2번타입으로 바꿔주겠다
 		MemberEntity member = modelMapper.map(request, MemberEntity.class); //meberentity.class?
-		return memberRepository.save(member);  // ?
+		return memberRepository.save(member);  // 
 	}
 
 	// 로그인
@@ -36,7 +36,7 @@ public class MemberService {
 		if (member == null || !member.getPassword().equals(request.getPassword())) {
 			return null;
 		}
-		return member; // ??
+		return member; // 
 	}
 
 	// id 중복
