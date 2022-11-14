@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+/* 메인 영역 CSS */
+.search {
+	margin-top: 50px;
+	font-weight: 500;
+	font-size: 28px;
+	line-height: 35px;
+	letter-spacing: -0.5px;
+	text-align: center;
+}
+.bold-test {
+	overflow: hidden;
+	max-width: 840px;
+	color: rgb(95, 0, 128);
+	text-align: center;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	vertical-align: top;
+}
+.no-search{	font-size: 16px;
+	color: rgb(181, 181, 181);
+	margin-top: 17px;
+}
+.search-box{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 480px;
+	-webkit-box-align: center;
+	align-items: center;
+	margin: auto;
+	padding: 100px 0px;
+}
+
+
+
+
+
+#contents {
+	width: 100%;
+	height: 1200px;
+}
+
+#contents h3 {
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 10px;
+	font-weight: bold;
+}
+
+#contents h3 .fa {
+	margin-left: 8px;
+}
+
+#contents .best_list {
+	width: 100%;
+	height: 450px;
+	padding: 0px 50px;
+}
+
+#contents .i {
+	max-width: 20%;
+	box-sizing: border-box;
+}
+
+#contents .i .txt_box {
+	text-align: left;
+	margin-top: 10px;
+	color: black;
+
+}
+
+#contents .i .txt_box h4 {
+	font-size: 15px;
+	padding-bottom: 5px;
+}
+
+#contents .i .txt_box p {
+	font-weight: bold;
+}
+
+
+#contents .i .img_box img {
+	width: 100%;
+	height: 350px;
+}
+
+
+#contents .another_list{
+	width: 100%;
+	height: 450px;
+	padding: 0px 50px;
+}
+.list{
+	display: grid;
+	grid-template-columns: repeat(4, 180px);
+	gap: 16px 83px;
+	overflow: hidden;
+	margin-top: 28px;
+	padding: 30px 40px;
+	border: 1px solid rgb(226, 226, 226);
+	line-height: 20px;
+}
+.list-li{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.list-a{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.list-select {
+	letter-spacing: -1px;
+	cursor: pointer;
+	font-weight: 700;
+	color: rgb(95, 0, 128);
+}

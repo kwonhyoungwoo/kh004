@@ -1,0 +1,79 @@
+/* 푸터 영역 CSS */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a:hover {
+	color: black;
+}
+
+.footer_wrap {
+	width: 100%;
+	height: 220px;
+	margin-top: 10px;
+}
+
+.footer {
+	height: 220px;
+	padding-left: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-right: 100px;
+}
+
+.footer_top {
+	width: 100%;
+	height: 50px;
+	padding: 10px;
+	margin-bottom: 20px;
+	text-align:center;
+	border-bottom: 1px dotted black;
+}
+
+.footer_top li {
+	display: inline-block;
+	padding-right: 20px;
+}
+
+.footer_left  {
+	width: 50%;
+	height: 180px;
+}
+
+.footer_left .f_center{
+	font-size: 25px;
+	font-weight: 500;
+	margin-bottom: 0px;
+}
+
+.footer_left .f_center .f_time {
+	font-weight: 400;
+	font-size: 15px;
+}
+
+.footer_left .f_number {
+	font-size: 25px;
+	font-weight: 700;
+}
+
+.footer_left .f_email {
+	font-size: 13px;
+	padding-top: 25px;
+	color: gray;
+
+}
+.footer_right {
+	width: 50%;
+	height: 180px;
+}
+
+.footer_right ul {
+	padding-right: 10px;
+    padding-left: 30px;
+    padding-top: 40px;
+	float : right;
+}
+
+	

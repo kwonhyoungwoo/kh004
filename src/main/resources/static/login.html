@@ -2,9 +2,27 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/real_main.css.css"/>
+<link rel="stylesheet" type="text/css" href="css/real_main.css"/>
     <link rel="stylesheet" type="text/css" href="css/mylist.css"/>
-
+    <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+            rel="stylesheet"
+    />
+    <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+            integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script/modal.js" defer></script>
+    <script src="./script/dropdown.js" defer></script>
+    <script src="./script/main-slide.js" defer></script>
+    <script src="./script/full-slide.js" defer></script>
+    <script src="./script/half-slide.js" defer></script>
+    <script src="./script/md-category.js" defer></script>
+    <script src="./script/quickmenu.js" defer></script>
+    <script src="./script/timer.js" defer></script>
   
 </head>
 <body>
@@ -20,11 +38,11 @@
                     <input type="password" name="password" size="20" tabindex="2" placeholder="비밀번호를 입력해주세요">
                     <div class="checkbox_save">
                         <div class="login_search">
-                            <a class="link" onclick="KurlyTrackerLink('/member/find/id', 'select_find_id')" href="#none">
+                            <a class="link" href="./loginFind.html">
                                 아이디 찾기
                             </a>
                             <span class="bar"></span>
-                            <a class="link" onclick="KurlyTrackerLink('/member/find/password', 'select_find_password')" href="#none">
+                            <a class="link" href="./passwordFind.html">
                                 비밀번호 찾기
                             </a>
                         </div>
@@ -37,7 +55,7 @@
 
 
                 <form action="" name="myForm2">
-                    <a class="btn_type2 btn_member" onclick="join();" href="#none">
+                    <a class="btn_type2 btn_member" onclick="join();" href="./join.html">
                         <span class="txt_type">회원가입</span>
                     </a>
                 </form>

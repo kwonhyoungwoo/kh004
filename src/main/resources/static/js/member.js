@@ -31,5 +31,8 @@ function joinCheck() {
 	
 	
 	
+	
+	
+	
 	return true;
 }
