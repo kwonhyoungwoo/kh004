@@ -67,6 +67,7 @@ public class MemberController {
 		}
 		model.addAttribute("id", id);
 		return "th/loginFindResult";
+		
 	}
 
 	@GetMapping("/find/password")
@@ -96,7 +97,8 @@ public class MemberController {
 
 		model.addAttribute("success", update);
 		session.setAttribute("name", request.getName());
-		return "th/myPage";
+		return "main/myPage";
+		//return "th/myPage"; 
 	}
 
 	// 관리자 회원 정보 페이지로 가기
