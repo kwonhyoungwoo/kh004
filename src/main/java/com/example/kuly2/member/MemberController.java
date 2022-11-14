@@ -122,4 +122,5 @@ public class MemberController {
 		return "admin/member/memberList";
 	}
 
+	
 }
