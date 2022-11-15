@@ -54,8 +54,7 @@ public class MemberController {
 
 	@GetMapping("/check/{id}")
 	@ResponseBody
-	public Boolean validateId(@PathVariable String id, HttpSession session) {
-		System.out.println(session.getAttribute("id"));
+	public Boolean validateId(@PathVariable String id) {
 		return memberService.validateId(id);
 	}
 
@@ -123,6 +122,5 @@ public class MemberController {
 		model.addAttribute("memberList", memberService.getAllMembers());
 		return "admin/member/memberList";
 	}
-
 	
 }
