@@ -31,7 +31,8 @@
 						<c:when test="${name == null }">
 							<li><a href="join.html">회원가입</a></li>
 							<li>|</li>
-							<li><a href="login.html">로그인</a></li>
+							 <li><a href="login.html">로그인</a></li>
+							
 							<li>|</li>
 						</c:when>
 						<c:otherwise>

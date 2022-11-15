@@ -1,30 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <title>마켓컬리 :: 내일의 장보기,마켓컬리</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 
 
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style2.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style3.css"/>
-    <link rel="stylesheet" type="text/css" href="css/real_main.css.css"/>
-    <link rel="stylesheet" type="text/css" href="css/mylist.css"/>
-    <script type="text/javascript" src="js/util.js"></script>
-    <script type="text/javascript" src="js/member.js"></script>
-
-    <script type="text/javascript" src="https://res.kurly.com/js/lib/jquery-1.10.2.min.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    
-
-   <!--   <script type="text/javascript"> -->
-    <script type="text/javascript" src="srcipt/member.js">
-
-
-     
-    </script>
-</head>
+<br>
+<br>
 
 <h1 class="logo">
 <a href="/">
@@ -268,21 +247,6 @@
 
                     </form>
                 </div>
-                
-                
+<%-- 푸터 파일 include --%>
+<%@include file="../layouts/footer.jsp" %>
 
-                
-    <!-- end 회원가입 -->
-    <footer>
-        <hr class=hr2>
-        <img class="fi" src="../image/footer_img.jpg" alt="푸터 이미지">
-        <div class="divfp">
-            <p class="fp">
-                마켓컬리에서 판매되는 상품 중에는 마켓컬리에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.<br>
-                마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.<br>
-                © KURLY CORP. ALL RIGHTS RESERVED</p>
-        </div>
-    </footer>
-    
-</body>
-</html>
