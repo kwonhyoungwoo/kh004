@@ -22,30 +22,26 @@ function cancelBoard() {
 			<div class="row mb-3">
 				<label for="inputEmail3" class="col-sm-2 col-form-label">제목</label>
 				<div class="col-sm-10">
-					<input type="text" name="title" placeholder="제목을 작성해주세요"
-						class="board_form form-control" value=${boardDto.title }>
-					<div id="passwordHelpBlock" class="board_valid form-text">${valid_title }</div>
+					<input type="text" name="title" placeholder="제목을 작성해주세요" class="board_form form-control" value=${boardDto.title }>
+					<div class="board_valid form-text">${valid_title }</div>
 				</div>
 			</div>
 			<div class="mb-3 row">
 				<label for="staticEmail" class="col-sm-2 col-form-label">작성자</label>
 				<div class="col-sm-10">
-					<input type="text" readonly class="form-control-plaintext"
-						id="staticEmail" value="${id } (${name })"> <input
-						type="hidden" name="userId" value="${id }"> <input
-						type="hidden" name="writer" value="${name }">
+					<input type="text" readonly class="form-control-plaintext" value="${id } (${name })"> 
+					<input type="hidden" name="userId" value="${id }"> 
+					<input type="hidden" name="writer" value="${name }">
 				</div>
 			</div>
 			<div class="mb-3">
 				<label for="exampleFormControlTextarea1" class="form-label">내용</label>
-				<textarea name="content" class="form-control"
-					placeholder="문의 내용을 작성해주세요" rows="4">${boardDto.content }</textarea>
-				<div id="passwordHelpBlock" class="board_valid form-text">${valid_content }</div>		
+				<textarea name="content" class="form-control" placeholder="문의 내용을 작성해주세요" rows="4">${boardDto.content }</textarea>
+				<div class="board_valid form-text">${valid_content }</div>		
 			</div>
 			<div class="write_button">
 				<button onclick="saveBoard()" class="btn btn-primary btn-sm">등록</button>
-				<button onclick="cancelBoard()" class="btn btn-secondary btn-sm"
-					type="button">취소</button>
+				<button onclick="cancelBoard()" class="btn btn-secondary btn-sm" type="button">취소</button>
 			</div>
 		</form>
 	</div>
