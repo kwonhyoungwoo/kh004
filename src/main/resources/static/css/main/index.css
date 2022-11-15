@@ -9,7 +9,7 @@
 
 .slide_area {
 	position: relative;
-	overflow: hidden; 
+	overflow: hidden;
 	width: 100%;
 }
 
@@ -31,7 +31,7 @@
 }
 
 /* 화살표 */
-#prev, #next{
+#prev, #next {
 	z-index: 1;
 	position: absolute;
 	top: 40%;
@@ -45,7 +45,6 @@
 	background-repeat: no-repeat;
 	-webkit-transition: all .3s ease-in;
 	transition: all .3s ease-in;
-
 }
 
 #prev {
@@ -61,67 +60,97 @@
 }
 
 #prev.disabled, #next.disabled {
-	display:none;
+	display: none;
 }
 
+/* index.jsp */
 #contents {
 	width: 100%;
-	height: 1200px;
+	height: 2000px;
 }
 
-#contents h3 {
+.list_slider {
+	margin: 0px auto;
+	position: relative;
+	width: 90%;
+}
+
+.list_slider h3 {
 	text-align: center;
-	padding-top: 50px;
-    padding-bottom: 10px;
-    font-weight: bold;
+	margin-top: 100px;
+	margin-bottom: 20px;
+	font-weight: bold;
 }
 
-#contents h3 .fa {
+.list_slider h3 .fa {
 	margin-left: 8px;
 }
 
-#contents .best_list {
-	width: 100%;
-	height: 450px;
-	padding: 0px 50px;
+.cate_list p {
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	color: gray;
 }
 
-#contents .item {
-	width: 15%;
-	height: 400px;
+.list_slider .prev, .prev2, .prev3 {
+	z-index: 1;
+	position: absolute;
+	color: #cecece;
+	top: 43%;
+	left: 260px;
+	border-radius: 50%;
+	box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 1);
+}
+
+.list_slider .next, .next2, .next3 {
+	z-index: 1;
+	position: absolute;
+	color: #cecece;
+	top: 43%;
+	right: 260px;
+	border-radius: 50%;
+	box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 1);
+}
+
+.list_slider .next:hover, .next2:hover, .next3:hover, .prev:hover,
+	.prev2:hover, .prev3:hover {
+	color: purple;
+	border-radius: 50%;
+	box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 1);
+}
+
+.list_slider .item_wrap, .item_wrap2, .item_wrap3 {
+	margin: 0px auto;
+	overflow: hidden;
+	width: 65%;
+	height: 500px;
+	padding: 10px 0px 10px 0px;
+}
+
+.item {
+	height: 500px;
 	padding: 10px;
-	float:left;
-	transform: translate(130%, 0%);
+	display: inline-block;
 	box-sizing: border-box;
 }
 
-#contents .item .txt_box {
+.item .txt_box {
 	text-align: left;
 	margin-top: 10px;
 	color: black;
-	
 }
 
-#contents .item .txt_box h4 {
+.item .txt_box h4 {
 	font-size: 15px;
 	padding-bottom: 5px;
 }
 
-#contents .item .txt_box p {
+.item .txt_box p {
 	font-weight: bold;
 }
 
-
-#contents .item .img_box img {
+.item .img_box img {
 	width: 100%;
 	height: 350px;
 }
-
-
-#contents .another_list{
-	width: 100%;
-	height: 450px;
-	padding: 0px 50px;
-}
-
-
