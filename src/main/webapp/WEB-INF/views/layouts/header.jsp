@@ -10,6 +10,7 @@
 <%-- 부트스트랩 CSS --%>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <%-- CSS파일 --%>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link href="/css/main/index.css" rel="stylesheet" type="text/css">
 <link href="/css/main/header.css" rel="stylesheet" type="text/css">
 <link href="/css/main/footer.css" rel="stylesheet" type="text/css">
@@ -17,6 +18,7 @@
 <%-- jQuery 불러오기 --%>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- JS 파일 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/js/main/index.js"></script>
 <script>
@@ -32,7 +34,7 @@ function notMember(){
 	}
 </script>
 <meta charset="UTF-8">
-<title>.</title>
+<title>컬리사조</title>
 </head>
 <body>
 	<div id="wrap">
@@ -50,8 +52,10 @@ function notMember(){
 							<li>|</li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="http://localhost/member/my">환영합니다! ${name}님</a></li>
-								<li><a href="/member/logout">로그아웃</a></li>
+								<li><a href="http://localhost/member/my">환영합니다! ${name}님</a></li>
+								<li><a class="nav_logout" href="/member/logout">로그아웃</a></li>
+								<li>|</li>
+								<li><a href="http://localhost/member/my">마이페이지</a></li>
 								<li>|</li>
 						</c:otherwise>
 					</c:choose>
@@ -74,6 +78,9 @@ function notMember(){
 				<div class="cart">
 					<ul>
 						<li><a href="./th/myPage.html"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
+						<li><a href="http://localhost/member/my"><i class="fa fa-user fa-2x"></i></a></li>
+<%--						<li><a href="#"><i class="fa fa-shopping-cart fa-2x"></i></a></li>--%>
+
 					</ul>
 				</div>
 			</div>
@@ -88,7 +95,8 @@ function notMember(){
 									<li><a href="/test-item/regist/Snack">간식</a></li>
 									<li><a href="#">간식</a></li>
 								</ul>
-							</div></li>
+							</div>
+						</li>
 						<li><a href="#">전체 상품</a></li>
 						<li><a href="#">베스트</a></li>
 						<li><a href="#">알뜰상품</a></li>

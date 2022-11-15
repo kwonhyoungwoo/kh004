@@ -18,8 +18,8 @@ a:hover {
 .footer {
 	height: 220px;
 	padding-left: 100px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 200px;
+    margin-right: 200px;
     padding-right: 100px;
 }
 
@@ -29,7 +29,7 @@ a:hover {
 	padding: 10px;
 	margin-bottom: 20px;
 	text-align:center;
-	border-bottom: 1px dotted black;
+	border-bottom: 1px solid #d3d3d3;
 }
 
 .footer_top li {
@@ -44,7 +44,7 @@ a:hover {
 
 .footer_left .f_center{
 	font-size: 25px;
-	font-weight: 500;
+	font-weight: 600;
 	margin-bottom: 0px;
 }
 
@@ -58,22 +58,63 @@ a:hover {
 	font-weight: 700;
 }
 
+.f_board {
+    margin-top: 10px;
+}
+
+.f_board button {
+	float: left;
+	width: 120px; 
+	height: 40px;
+	font-size: 14px;
+	padding : 5px 20px;
+	border-radius: 5px;
+	background-color: white;
+	border: 1px solid gray;
+}
+
+.f_board button:hover{
+	color: white;
+	background-color: gray;
+}
+
+.f_board_text {
+	float: left;
+	font-size: 14px;
+	color: gray;
+	padding-left: 20px;
+    padding-right: 20px;
+}
+
 .footer_left .f_email {
 	font-size: 13px;
-	padding-top: 25px;
+	padding-top: 10px;
 	color: gray;
+	float: left;
 
 }
+
 .footer_right {
 	width: 50%;
 	height: 180px;
+    padding-left: 130px;
 }
 
-.footer_right ul {
-	padding-right: 10px;
-    padding-left: 30px;
-    padding-top: 40px;
-	float : right;
+.footer_info ul {
+	padding-left: 0px;
 }
 
+.footer_info li {
+	font-size: 14px;
+	display: inline-block;
+}
+
+.footer_team {
+	font-size: 12px;
+}
+
+.f_team {
+	color: purple;
+	font-weight: bold;
+}
 	

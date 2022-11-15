@@ -19,7 +19,7 @@ public class ReplyController {
 	private ReplyService replyService;
 
 	// 답변 등록
-	@PostMapping("/admin/repWrite/{id}")
+	@PostMapping("/admin/rep/write/{id}")
 	public String repWrite(@PathVariable("id") Long id, ReplyDto replyDTO) {
 		BoardDto boardDTO = boardService.getBoard(id);
 		replyService.repSave(boardDTO, replyDTO.getContent());

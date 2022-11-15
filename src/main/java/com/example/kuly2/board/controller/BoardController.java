@@ -4,17 +4,9 @@ package com.example.kuly2.board.controller;
 import com.example.kuly2.board.dto.BoardDto;
 import com.example.kuly2.board.service.BoardService;
 import lombok.AllArgsConstructor;
-
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -51,7 +43,7 @@ public class BoardController {
 
 	// 게시글 작성페이지getPageList
 	// 회원 인증 추가
-	@GetMapping("/boardPost")
+	@GetMapping("/board/post")
 	public String write(HttpSession session, Model model) {
 		model.addAttribute("id", session.getAttribute("id"));
 		model.addAttribute("name", session.getAttribute("name"));
@@ -61,7 +53,7 @@ public class BoardController {
 	}
 
 	// 게시글 등록
-	@PostMapping("/boardPost")
+	@PostMapping("/board/post")
 	public String write(@Valid BoardDto boardDTO, Errors errors, Model model) {
 		if (errors.hasErrors()) {
 			model.addAttribute("boardDto", boardDTO); // 글 등록 실패시 입력 값 유지
