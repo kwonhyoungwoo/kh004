@@ -43,4 +43,7 @@ public class MemberEntity {
 	@Column(name = "address")
 	private String address;
 
+	@Column(name = "role")
+	private String role;
+
 }

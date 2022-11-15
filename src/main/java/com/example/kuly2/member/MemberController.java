@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/member")
 public class MemberController {
 
-	private final MemberService memberService;
+	private final MemberService memberService; 
 
 	@PostMapping
 	public String regist(MemberRegistRequest request) {
@@ -36,7 +36,7 @@ public class MemberController {
 		MemberEntity member = memberService.login(request);
 		if (member != null) {
 			session.setAttribute("id", member.getId());
-			session.setAttribute("name", member.getName());
+			session.setAttribute("name", member.getName());   // ~~님 환영합니다 이름!
 			model.addAttribute("message", "로그인 성공!");
 		} else {
 			model.addAttribute("message", "로그인 실패!");
@@ -62,11 +62,12 @@ public class MemberController {
 	@GetMapping("/find/id")
 	public String findId(MemberFindIdRequest request, Model model) {
 		String id = memberService.findId(request);
-		if (id == null || id.equals("")) {
+		if (id == null || id.equals("")) { 
 			return "redirect:/findIdFail.html";
 		}
 		model.addAttribute("id", id);
 		return "th/loginFindResult";
+		
 	}
 
 	@GetMapping("/find/password")
@@ -80,18 +81,48 @@ public class MemberController {
 	}
 
 	@GetMapping("/my")
-	public String my(HttpSession session) {
-		return "th/myPage";
+	public String my(HttpSession session, Model model) {
+		// 로그인이 되어있는지?
+		if (session.getAttribute("name") != null) {
+			// 모델에 이름 정보를 담아준다.
+			model.addAttribute("name", session.getAttribute("name"));
+		}
+		return "/main/myPage";
 	}
 
 	@PostMapping("/update")
 	public String update(HttpSession session, Model model, MemberUpdateRequest request) {
 		String id = (String)session.getAttribute("id");
-		boolean update = memberService.update(id, request);
+		boolean update = memberService.update(id, request); 
 
 		model.addAttribute("success", update);
 		session.setAttribute("name", request.getName());
-		return "th/myPage";
-		
+		return "main/myPage";
+		//return "th/myPage"; 
 	}
+
+	// 관리자 회원 정보 페이지로 가기
+	@GetMapping("/update/admin/{memberId}")
+	public String updatePage(HttpSession session, Model model, @PathVariable String memberId) {
+		String id = (String)session.getAttribute("id");
+		// 관리자 권한 체크
+		if (!memberService.isAdmin(id)) {
+			model.addAttribute("memberList", memberService.getAllMembers());
+			return "admin/member/memberList";
+		}
+
+		// 수정할 멤버 데이터 넘기기
+		model.addAttribute("member", memberService.findMemberById(memberId));
+		return "th/adminMemberUpdate";
+	}
+
+	// 관리자의 회원 수정
+	@PostMapping("/update/admin")
+	public String updateByAdmin(HttpSession session, Model model, MemberUpdateRequest request) {
+		memberService.update(request.getId(), request); //?b?
+		model.addAttribute("memberList", memberService.getAllMembers());
+		return "admin/member/memberList";
+	}
+
+	
 }

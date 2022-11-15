@@ -1,40 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <title>마켓컬리 :: 내일의 장보기,마켓컬리</title>
-
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style2.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style3.css"/>
-    <link rel="stylesheet" type="text/css" href="css/real_main.css.css"/>
-    <link rel="stylesheet" type="text/css" href="css/mylist.css"/>
-    <script type="text/javascript" src="js/util.js"></script>
-    <script type="text/javascript" src="js/member.js"></script>
-
-    <script type="text/javascript" src="https://res.kurly.com/js/lib/jquery-1.10.2.min.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 
 
-    <!--   <script type="text/javascript"> -->
-    <script type="text/javascript" src="srcipt/member.js">
+<br>
+<br>
+
+<h1 class="logo">
+<a href="/">
+<div style="text-align : center;">
+<img src="/image/logo.png"  width="100" height="150" align="middle"  ><figcaption>홈으로</figcaption></a>
+</h1>
 
 
-
-    </script>
-</head>
 <body class="member-join">
 <div class="container">
-
-
-
     
-      
+
+
 
     <!-- 회원가입 글자-->
     <div class="tit_page">
-        <h2 class="tit">회원수정</h2>
+        <h2 class="tit">회원가입</h2>
     </div>
     <!-- end 회원가입 글자 -->
 
@@ -53,15 +39,28 @@
                 <div class="type_form member_join ">
 
                     <!-- 회원가입입력 -->
-                    <form action="/member/update" method="post" name="frm">
+                    <form action="/member" method="post" name="frm">
                         <p class="page_sub"><span class="ico">*</span>필수입력사항</p>
                         <table class="tbl_comm">
-                            <!-- --------------------------------------------------------------------------------------------------------비밀번호 -->
+                            <!-- -----------------------------------------------------------------------------------------------------아이디 입력 -->
                             <tr class="fst">
+                                <th>아이디<span class="ico">*<span class="screen_out">필수항목</span></span></th>
+                                <td>
+                                    <input type="text" id="userId" name="id" value="" maxlength="16" required fld_esssential option=regId  label="아이디" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합">
+                                    <!-- 아이디 중복체크 클릭 -->
+                                    <input type="button"  value="중복확인" class="btn default" onclick="checkId()">
+
+                                    
+                                </td>
+                            </tr>
+                            <!-- -------------------------------------------------------------------------------------------------end 아이디 입력 -->
+
+                            <!-- --------------------------------------------------------------------------------------------------------비밀번호 -->
+                            <tr>
                                 <th>비밀번호<span class="ico">*<span class="screen_out">필수항목</span></span></th>
                                 <td>
                                     <input type=password name="password" required fld_esssential option=regPass label="비밀번호" maxlength="16" class="reg_pw" placeholder="비밀번호를 입력해주세요">
-
+                                    
                                 </td>
                             </tr>
                             <!-- -----------------------------------------------------------------------------------------------end 비밀번호 설정 -->
@@ -71,7 +70,7 @@
                                 <th>비밀번호확인<span class="ico">*<span class="screen_out">필수항목</span></span></th>
                                 <td>
                                     <input type=password name="pwd2" required fld_esssential option=regPass label="비밀번호" maxlength="16" class="confirm_pw" placeholder="비밀번호를 한번 더 입력해주세요">
-
+                                    
                                 </td>
                             </tr>
                             <!-- end 비밀번호 확인 -->
@@ -90,7 +89,7 @@
                                 <th>이메일<span class="ico">*<span class="screen_out">필수항목</span></span></th>
                                 <td>
                                     <input type="text" name="email" value="" data-email="" size=30 required fld_esssential option=regEmail label="이메일" placeholder="예: marketkurly@kurly.com">
-
+                                   
                                 </td>
                             </tr>
                             <!-- ------------------------------------------------------------------------------------------------------end 이메일 -->
@@ -108,7 +107,7 @@
                             <tr>
                                 <th>주소<span class="ico">*<span class="screen_out">필수항목</span></span></th>
                                 <td class="field_address">
-                                    <input type="text" name="address" id="sample4_detailAddress" placeholder="주소">
+                                <input type="text" name="address" id="sample4_detailAddress" placeholder="주소">
 
                                     <p class="txt_guide">
                                         <span class="txt txt_case1">배송지에 따라 상품 정보가 달라질 수 있습니다.</span>
@@ -125,7 +124,7 @@
                                         <input type="text" name="birth" id="birth_month" pattern="[0-9]*" value="" label="생년월일" size=6 maxlength=8
                                                placeholder="            YYYY            /            MM            /            DD            ">
 
-
+                                        
                                     </div>
                                     <p class="txt_guide">
                                         <span class="txt bad"></span>
@@ -155,6 +154,83 @@
                             <!-- --------------------------------------------------------------------------------------------------------end 성별 -->
 
                             <!-- ----------------------------------------------------------------------------------------------------이용약관동의 -->
+                            <tr class="reg_agree">
+                                <th>이용약관동의 <span class="ico">*<span class="screen_out">필수항목</span></span></th>
+                                <td>
+                                    <div class="bg_dim"></div>
+                                    <div class="check">
+                                        <label class="check_agree label_all_check label_block">
+                                            <input type=checkbox name="agree_allcheck">
+                                            <span class="ico"></span>전체 동의합니다.
+                                        </label>
+                                        <p class="sub">선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를 이용할 수 있습니다.</p>
+                                    </div>
+                                    <div class="check_view">
+                                        <label class="check_agree label_block">
+                                            <input type="checkbox" value="" name="agree" required label="이용약관">
+                                            <span class="ico"></span>이용약관 동의 <span class="sub">(필수)</span>
+                                        </label>
+                                        <a href="#none" class="link btn_link btn_agreement">약관보기 </a>
+                                    </div>
+
+
+                                   
+
+                                    <div class="check_view">
+                                        <label class="check_agree label_block">
+                                            <input type="checkbox" id="private1" name="private1" value="" required label="개인정보 수집·이용">
+                                            <span class="ico"></span>개인정보 수집·이용 동의 <span class="sub">(필수)</span>
+                                        </label>
+                                        <a href="#none" class="link btn_link btn_essential">약관보기 </a>
+                                    </div>
+
+                                    <div class="layer layer_essential">
+                                        <div class="inner_layer">
+                                            <div class="in_layer">
+                                                <h4 class="tit_layer">개인정보 수집·이용 동의 <span class="sub">(필수)</span></h4>
+                                               </div>
+                                               </div>
+                                               </div>
+                                              
+
+                                    <div class="layer layer_choice">
+                                        <div class="inner_layer">
+                                            <div class="in_layer">
+                                                <h4 class="tit_layer">개인정보 수집·이용 동의 <span class="sub">(선택)</span></h4>
+                                              
+                                              </div>
+                                              </div>
+                                              </div>
+                                              
+                                              
+
+                                    <div class="check_view">
+                                        <label class="label_block check_agree ">
+                                            <input type="checkbox" name="marketing">
+                                            <span class="ico"></span>무료배송, 할인쿠폰 등 혜택/정보 수신 동의 <span class="sub">(선택)</span>
+                                        </label>
+                                        <div class="check_event email_sms">
+                                            <label class="label_block check_agree ">
+                                                <input type="checkbox" name="sms" value="n">
+                                                <span class="ico"></span>SMS
+                                            </label>
+                                            <label class="label_block check_agree ">
+                                                <input type="checkbox" name="mailling" value="n">
+                                                <span class="ico"></span>이메일
+                                            </label>
+                                        </div>
+                                        <p class="sms_info">
+                                            동의 시 한 달간 [5% 적립] + [2만원 이상 무료배송] 첫 주문 후 안내 
+                                        </p>
+                                    </div>
+                                    <div class="check_view">
+                                        <label class=" check_agree label_block">
+                                            <input type="checkbox" value="n" name="fourteen_chk" required label="만 14세 이상">
+                                            <span class="ico"></span>본인은 만 14세 이상입니다. <span class="sub">(필수)</span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
                         </table>
                         <!-- ---------------------------------------------------------------------------------------------------end 이용약관  -->
 
@@ -162,30 +238,15 @@
                         <!-- ---------------------------------------------------------------------------------------------------가입하기 버튼 -->
 
                         <div id="formSubmit" class="form_footer">
-
-                            <button class="btn active btn_join" type="submit"  onclick="return joinCheck()" >수정하기</button>
-                            <!--      <button class="btn active btn_join" type="submit"  >가입하기</button>  -->
+                       
+                     <button class="btn active btn_join" type="submit"  onclick="return joinCheck()" >가입하기</button>
+                <!--      <button class="btn active btn_join" type="submit"  >가입하기</button>  -->      
 
                         </div>
                         <!-- ----------------------------------------------------------------------------------------------end 가입하기 버튼  -->
 
                     </form>
                 </div>
+<%-- 푸터 파일 include --%>
+<%@include file="../layouts/footer.jsp" %>
 
-
-
-
-                <!-- end 회원가입 -->
-                <footer>
-                    <hr class=hr2>
-                    <img class="fi" src="../image/footer_img.jpg" alt="푸터 이미지">
-                    <div class="divfp">
-                        <p class="fp">
-                            마켓컬리에서 판매되는 상품 중에는 마켓컬리에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.<br>
-                            마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.<br>
-                            © KURLY CORP. ALL RIGHTS RESERVED</p>
-                    </div>
-                </footer>
-
-</body>
-</html>
