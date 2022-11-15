@@ -1,6 +1,7 @@
 package com.example.kuly2.board.dto;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 
@@ -25,16 +26,19 @@ public class BoardDto {
 	private String title;
 	@NotBlank(message = "내용을 입력해주세요.")
 	private String content;
-	private LocalDate createDate;
-
+	private LocalDateTime createDate;
+	private List<ReplyDto> repList;
+	
 	@Builder
-	public BoardDto(Long id, String title, String writer, String content, LocalDate createDate, String userId) {
+	public BoardDto(Long id, String title, String writer, String content, 
+			LocalDateTime createDate, String userId, List<ReplyDto> repList) {
 		this.id = id;
 		this.title = title;
 		this.writer = writer;
 		this.content = content;
 		this.createDate = createDate;
 		this.userId = userId;
+		this.repList = repList;
 	}
 
 	// 필요한 Entity추가

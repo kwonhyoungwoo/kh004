@@ -13,10 +13,24 @@
 <link href="/css/main/index.css" rel="stylesheet" type="text/css">
 <link href="/css/main/header.css" rel="stylesheet" type="text/css">
 <link href="/css/main/footer.css" rel="stylesheet" type="text/css">
+<link href="/css/board/board.css" rel="stylesheet" type="text/css">
 <%-- jQuery 불러오기 --%>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- JS 파일 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/js/main/index.js"></script>
+<script>
+/* 고객센터 접근시 로그인 유무 확인 */
+function notMember(){
+		var id = '<%=(String)session.getAttribute("id")%>';
+		if (id == "null"){
+			alert("로그인이 필요한 서비스입니다.");
+			location.href="/login.html";
+		} else {
+			location.href="/board";
+		} 
+	}
+</script>
 <meta charset="UTF-8">
 <title>.</title>
 </head>
@@ -31,7 +45,8 @@
 						<c:when test="${name == null }">
 							<li><a href="join.html">회원가입</a></li>
 							<li>|</li>
-							<li><a href="login.html">로그인</a></li>
+							 <li><a href="login.html">로그인</a></li>
+							
 							<li>|</li>
 						</c:when>
 						<c:otherwise>
@@ -40,7 +55,7 @@
 								<li>|</li>
 						</c:otherwise>
 					</c:choose>
-					<li><a href="/board">고객센터</a></li>
+					<li><a href="#" onclick="notMember()">고객센터</a></li>
 				</ul>
 			</div>
 			<%-- 헤더 중간 --%>

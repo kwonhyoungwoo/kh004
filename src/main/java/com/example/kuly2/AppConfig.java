@@ -8,6 +8,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.example.kuly2.testitem.ItemCategory;
+
+import com.example.kuly2.member.MemberEntity;
+import com.example.kuly2.member.MemberRepository;
+
 import com.example.kuly2.testitem.TestItem;
 import com.example.kuly2.testitem.TestItemRepository;
 
@@ -26,8 +30,18 @@ public class AppConfig {
 			@Autowired
 			TestItemRepository repository;
 
+			@Autowired
+			MemberRepository memberRepository;
+
 			@Override
 			public void run(ApplicationArguments args) throws Exception {
+				MemberEntity member = new MemberEntity();
+				member.setId("admin");
+				member.setName("관리자");
+				member.setPassword("1234");
+				member.setRole("Admin");
+				memberRepository.save(member);
+
 				repository.save(TestItem.builder()
 					.name("사과")
 					.price(10000L)
