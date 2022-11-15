@@ -36,16 +36,6 @@
         text-align: left;
     }
 </style>
-<script>
-    $(function(){
-        $("tr[no]").on("click",function(){
-            var productNo = $(this).attr("no");
-            location.href = "/admin/productList/productListView?no="+productNo;
-        });
-    });
-
-</script>
-
 
 <body>
 
@@ -54,7 +44,7 @@
     <h2> 상품 추가 </h2>
     <tr>
         <td colspan="6" class="text-end">
-            <input type="button" class="btn btn-warning" value="상품추가" onclick="location.href='/admin/productList/productListInsert'">
+            <input type="button" class="btn btn-warning" value="상품추가" onclick="location.href='/admin/productList/productListInsertView'">
         </td>
     </tr>
     <div align="center">
@@ -74,9 +64,9 @@
             </thead>
             <tbody>
                 <c:forEach items="${productList}" var="product" varStatus="status">
-                    <tr no="${product.product_no}" class="table-info">
-                        <td id="id">${count + status.index}</td>
-                        <td>${product.product_name}></td>
+                    <tr onclick="location.href='/admin/productList/productListView/${product.product_no}'" class="table-info">
+                        <td id="id">${product.product_no}</td>
+                        <td>${product.product_name}</td>
                         <td>${product.product_price}</td>
                         <td>${product.product_information}</td>
                         <td>${product.product_photo}</td>
@@ -89,7 +79,11 @@
             </tbody>
         </table>
     </div>
-
+    <div>
+        <c:forEach var='pageNum' items="${productPageList }">
+            <a href="?page= + ${pageNum}">${pageNum }</a>
+        </c:forEach>
+    </div>
 
 </section>
 

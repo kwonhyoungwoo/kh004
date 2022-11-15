@@ -1,11 +1,8 @@
 package com.example.kuly2.board.controller;
 
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
+import com.example.kuly2.board.dto.BoardDto;
+import com.example.kuly2.board.service.BoardService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -14,10 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.kuly2.board.dto.BoardDto;
-import com.example.kuly2.board.service.BoardService;
-
-import lombok.AllArgsConstructor;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @AllArgsConstructor
@@ -41,7 +38,7 @@ public class BoardController {
 		return "/board/list";
 	}
 
-	// 게시글 작성페이지
+	// 게시글 작성페이지getPageList
 	// 회원 인증 추가
 	@GetMapping("/boardPost")
 	public String write(HttpSession session, Model model) {

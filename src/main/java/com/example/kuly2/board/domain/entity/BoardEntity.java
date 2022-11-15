@@ -1,19 +1,13 @@
 package com.example.kuly2.board.domain.entity;
 
-import java.time.LocalDate;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.Table;
-
-import com.sun.istack.NotNull;
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+
+//import com.sun.istack.NotNull;
 
 @Entity
 @Getter

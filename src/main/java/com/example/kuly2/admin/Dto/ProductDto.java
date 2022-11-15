@@ -17,7 +17,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class ProductDto {
     @Id
-    private int product_no;
+    private Long product_no;
     private String product_name;
     private int product_price;
     private String product_information;
@@ -29,7 +29,7 @@ public class ProductDto {
 
 
     @Builder
-    public ProductDto(int product_no, String product_name, int product_price,
+    public ProductDto(Long product_no, String product_name, int product_price,
                          String product_information, String product_photo,
                          String product_description, int product_rate ,String product_adder,
                          Timestamp product_regdate) {

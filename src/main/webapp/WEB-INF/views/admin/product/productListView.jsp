@@ -46,8 +46,8 @@
         </table>
         <tr>
             <td colspan="6" class="text-center">
-                <input type="button" class="btn btn-warning" value="수정하기" onclick="location.href='/admin/productList/productListViewUpdate?no=${productListView.product_no}'">
-                <input type="button" class="btn btn-danger" value="삭제하기" onclick="location.href='/admin/productList/productDelete?no=${productListView.product_no}'">
+                <input type="button" class="btn btn-warning" value="수정하기" onclick="location.href='/admin/productList/productListToUpdate/${productListView.product_no}'">
+                <input type="button" class="btn btn-danger" value="삭제하기" onclick="location.href='/admin/productList/productDelete/${product_no}'">
                 <input type="button" class="btn btn-primary" value="목록보기" onclick="location.href='/admin/productList'">
             </td>
         </tr>
