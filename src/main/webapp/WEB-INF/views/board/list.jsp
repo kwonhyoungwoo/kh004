@@ -12,13 +12,14 @@
 <body>
 	<%@include file="../layouts/header.jsp"%>
 	<a href="/boardPost">글쓰기</a>
-	<table>
+	<table style=" width:20%;
+    padding:2px;">
 		<thead>
 			<tr>
 				<th>번호</th>
-				<th>글제목</th>
-				<th>작성자</th>
-				<th>작성일</th>
+				<th >글제목</th>
+				<th >작성자</th>
+				<th >작성일</th>
 			</tr>
 		</thead>
 		<tbody>

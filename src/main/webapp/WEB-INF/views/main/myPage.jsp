@@ -13,12 +13,14 @@
 <div id="contents">
     <c:choose>
         <c:when test="${success != null }">
-            <c:when test="${success}">
-                <div> 회원 수정 성공</div>
-            </c:when>
-            <c:otherwise>
-                <div> 회원 수정 실패</div>
-            </c:otherwise>
+            <c:choose>
+                <c:when test="${success}">
+                    <div> 회원 수정 성공</div>
+                </c:when>
+                <c:otherwise>
+                    <div> 회원 수정 실패</div>
+                </c:otherwise>
+            </c:choose>
         </c:when>
     </c:choose>
     <div><a href="http://localhost/memberUpdate.html">
