@@ -31,7 +31,7 @@
 				<label for="inputEmail3" class="col-sm-2 col-form-label">제목</label>
 				<div class="col-sm-10">
 					<input type="text" name="title" class="board_form form-control" value="${boardDto.title }">
-					<div id="passwordHelpBlock" class="board_valid form-text">${valid_title }</div>
+					<div class="board_valid form-text">${valid_title }</div>
 				</div>
 			</div>
 			<div class="mb-3 row">
@@ -45,7 +45,7 @@
 			<div class="mb-3">
 				<label for="exampleFormControlTextarea1" class="form-label">내용</label>
 				<textarea name="content" class="form-control" rows="4">${boardDto.content }</textarea>
-				<div id="passwordHelpBlock" class="board_valid form-text">${valid_content }</div>
+				<div class="board_valid form-text">${valid_content }</div>
 			</div>
 			<div class="write_button">
 				<button onclick="editBoard()" class="btn btn-primary btn-sm">수정</button>
