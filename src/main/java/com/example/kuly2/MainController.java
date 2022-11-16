@@ -1,19 +1,16 @@
 package com.example.kuly2;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
+import com.example.kuly2.admin.Dto.ProductDto;
+import com.example.kuly2.admin.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.kuly2.admin.Dto.ProductDto;
-import com.example.kuly2.admin.service.ProductService;
-
-import lombok.RequiredArgsConstructor;
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -28,10 +25,10 @@ public class MainController {
 			// 모델에 이름 정보를 담아준다.
 			model.addAttribute("name", session.getAttribute("name"));
 		}
-		List<ProductDto> productDto = productService.memberList();
+		List<ProductDto> productDto = productService.productList();
         model.addAttribute("productList", productDto); //전체 상품
         
-        List<ProductDto> productDto2 = productService.memberList();
+        List<ProductDto> productDto2 = productService.productList();
         List<ProductDto> productRecommend =  new ArrayList<ProductDto>();
         
         Collections.shuffle(productDto2); 
