@@ -85,5 +85,11 @@ public class MemberService {
 	public MemberEntity findMemberById(String id) {
 		return memberRepository.findById(id).orElse(null);
 	}
+	
+	public MemberEntity findById(String id) {
+		return memberRepository.findById(id).orElse(null);
+	}
 
+
+	
 }
