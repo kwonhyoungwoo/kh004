@@ -53,7 +53,7 @@ function notMember(){
 						</c:when>
 						<c:otherwise>
 								<li><a href="http://localhost/member/my">환영합니다! ${name}님</a></li>
-								<li><a class="nav_logout" href="/member/logout">로그아웃</a></li>
+								<li><a href="/member/logout">로그아웃</a></li>
 								<li>|</li>
 								<li><a href="http://localhost/member/my">마이페이지</a></li>
 								<li>|</li>
@@ -95,8 +95,7 @@ function notMember(){
 									<li><a href="/test-item/regist/Snack">간식</a></li>
 									<li><a href="#">간식</a></li>
 								</ul>
-							</div>
-						</li>
+							</div></li>
 						<li><a href="#">전체 상품</a></li>
 						<li><a href="#">베스트</a></li>
 						<li><a href="#">알뜰상품</a></li>

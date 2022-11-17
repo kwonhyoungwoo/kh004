@@ -41,17 +41,17 @@ a {
 	font-size: 13px;
 }
 
+#header .nav li:nth-child(2) {
+	font-weight: bold;
+	color: purple;
+}
+
 #header .nav li:nth-last-child(1) {
 	margin-right: 20px;
 }
 
 #header .nav li:first-child {
 	margin-left: 0;
-}
-
-.nav_logout, .nav_logout:hover{
-	font-weight: bold;
-	color: purple;
 }
 
 #header #header_mid {
