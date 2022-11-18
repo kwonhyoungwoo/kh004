@@ -1,14 +1,12 @@
 package com.example.kuly2.member;
 
+import lombok.*;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import javax.persistence.PrePersist;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -45,5 +43,12 @@ public class MemberEntity {
 
 	@Column(name = "role")
 	private String role;
+
+	private LocalDateTime member_regdate;
+
+	@PrePersist
+	public void createdAt() {
+		this.member_regdate = LocalDateTime.now();
+	}
 
 }

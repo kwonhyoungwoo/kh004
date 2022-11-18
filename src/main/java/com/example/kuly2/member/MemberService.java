@@ -1,17 +1,14 @@
 package com.example.kuly2.member;
 
-import java.util.List;
-
+import com.example.kuly2.member.request.*;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.example.kuly2.member.request.MemberFindIdRequest;
-import com.example.kuly2.member.request.MemberFindPasswordRequest;
-import com.example.kuly2.member.request.MemberLoginRequest;
-import com.example.kuly2.member.request.MemberRegistRequest;
-import com.example.kuly2.member.request.MemberUpdateRequest;
-
-import lombok.RequiredArgsConstructor;
+import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -85,5 +82,15 @@ public class MemberService {
 	public MemberEntity findMemberById(String id) {
 		return memberRepository.findById(id).orElse(null);
 	}
+
+
+
+	// 회원 목록
+	@Transactional
+	public Page<MemberDto> findAll(Pageable pageable) {
+		Page<MemberEntity> memberEntities = memberRepository.findAll(pageable);
+		return memberEntities.map(entity -> new MemberDto(entity));
+	}
+
 
 }
