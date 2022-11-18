@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -16,13 +16,7 @@
 		<c:when test="${empty boardList }">
 			<div class="empty_wrap">
 				<p>등록된 글이 없습니다.</p>
-<%--<<<<<<< HEAD--%>
-<%--				<p>도움이 필요하신가요? <button class="btn btn-primary btn-sm" onclick="location.href='/boardPost'">문의 하기</button> </p>--%>
-
-<%--=======--%>
 				<p>도움이 필요하신가요? <button class="btn btn-primary btn-sm" onclick="location.href='/board/post'">문의 하기</button> </p>
-
-<%-->>>>>>> origin/D--%>
 			</div>
 		</c:when>
 		<c:otherwise>
