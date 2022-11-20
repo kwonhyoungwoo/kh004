@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%-- 헤더 파일 include --%>
 <%@include file="../layouts/header.jsp" %>
