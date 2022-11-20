@@ -38,7 +38,7 @@ public class AppConfig {
 				member.setPassword("1234");
 				member.setRole("Admin");
 				memberRepository.save(member);
-
+/*
 				repository.save(TestItem.builder()
 					.name("사과")
 					.price(10000L)
@@ -74,7 +74,10 @@ public class AppConfig {
 					.price(10500L)
 					.discount(20)
 					.build());
+					*/
 			}
 		};
+		
 	}
+	
 }

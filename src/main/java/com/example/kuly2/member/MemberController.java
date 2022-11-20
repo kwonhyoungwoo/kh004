@@ -122,5 +122,14 @@ public class MemberController {
 		model.addAttribute("memberList", memberService.getAllMembers());
 		return "admin/member/memberList";
 	}
+	//구매
+	@GetMapping("/item")
+	public String myItem(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("id");
+		MemberEntity member = memberService.findById(id);
+		model.addAttribute("list", member.getItemList());
+		return "th/ItemList";
 	
+}
+
 }
