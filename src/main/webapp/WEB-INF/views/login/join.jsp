@@ -8,7 +8,7 @@
 <h1 class="logo">
 <a href="/">
 <div style="text-align : center;">
-<img src="/image/logo.png"  width="100" height="150" align="middle"  ><figcaption>홈으로</figcaption></a>
+<img src="/image/logo.png"  width="100" height="150" align="middle"  ><figcaption>홈으로333</figcaption></a>
 </h1>
 
 

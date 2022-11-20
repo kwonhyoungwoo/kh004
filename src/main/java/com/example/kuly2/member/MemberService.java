@@ -65,6 +65,7 @@ public class MemberService {
 			return false;
 		}
 		modelMapper.map(request, member);
+		member.setId(id);
 		memberRepository.save(member);
 		return true;
 	}

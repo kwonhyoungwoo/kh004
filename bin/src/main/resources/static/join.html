@@ -1319,11 +1319,12 @@
     </footer>
     <script type="text/javascript">
         function checkId() {
+            console.log("hi");
             const userName = $("#userId").val();
-            const url = "/member/" + userName;
+            const url = "/member/check/" + userName;
             $.ajax({
                 type: "get",
-                url: "/member/" + userName,
+                url: url,
                 dataType: "JSON",
 
                 success: function (result) {
