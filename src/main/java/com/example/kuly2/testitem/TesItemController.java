@@ -64,7 +64,7 @@ public class TesItemController {
 	}
 
 	@GetMapping("buy/{id}")
-	public String buyItem(@PathVariable String id, HttpSession session) {
+	public String buyItem(@PathVariable String id, HttpSession session, Model model) {
 		TestItem testItem = repository.findById(Long.parseLong(id)).orElse(null);
 		String memberId = (String)session.getAttribute("id");
 		if (testItem != null) {
@@ -72,8 +72,9 @@ public class TesItemController {
 			if (member != null) {
 				member.getItemList().add(testItem);
 				memberRepository.save(member);
+				model.addAttribute("list", member.getItemList());
 			}
 		}
-		return "/main/index";
+		return "th/ItemList";
 	}
 }
