@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.kuly2.member.MemberEntity;
 import com.example.kuly2.member.MemberRepository;
+import com.example.kuly2.member.MemberService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,6 +25,7 @@ public class TesItemController {
 	private final TestItemRepository repository;
 	private final MemberRepository memberRepository;
 	private final ModelMapper modelMapper;
+	private final MemberService memberService;
 
 	@GetMapping("/{name}")
 	public String getItem(@PathVariable String name, Model model) {
@@ -32,15 +34,24 @@ public class TesItemController {
 		return "list";
 	}
 
-	@GetMapping("/regist/{category}")
-	public String registItemPage(@PathVariable String category, Model model) {
+	@GetMapping("/regist")
+	public String registItemPage( Model model, HttpSession session) {
+		String id = (String)session.getAttribute("id");
+		if (memberService.isAdmin(id)) {
+			return "th/registItem";
+		}
+		return "redirect:/";
+	}
+
+	@GetMapping("/view/{category}")
+	public String viewItemPage(@PathVariable String category, Model model) {
 		int cate = 0;
 		if (!category.equals("Fruit")) {
 			cate = 1;
 		}
 
-		model.addAttribute("cate", cate);
-		return "th/registItem";
+		model.addAttribute("list", repository.findByCategory(ItemCategory.values()[cate]));
+		return "th/ItemList";
 	}
 
 	@PostMapping

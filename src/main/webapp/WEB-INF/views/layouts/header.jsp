@@ -50,7 +50,7 @@ function notMember(){
 							<li>|</li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="http://localhost/member/my">환영합니다! ${name}님</a></li>
+							<li><a href="/member/my">환영합니다! ${name}님</a></li>
 								<li><a href="/member/logout">로그아웃</a></li>
 								<li>|</li>
 						</c:otherwise>
@@ -73,7 +73,7 @@ function notMember(){
 				</div>
 				<div class="cart">
 					<ul>
-						<li><a href="#"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
+						<li><a href="/member/item"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
 					</ul>
 				</div>
 			</div>
@@ -84,8 +84,8 @@ function notMember(){
 						<li><a href="#"><i class="fa fa-list"></i>전체 카테고리</a>
 							<div class="sub_menu_1">
 								<ul>
-									<li><a href="/test-item/regist/Fruit">과일</a></li>
-									<li><a href="/test-item/regist/Snack">간식</a></li>
+									<li><a href="/test-item/view/Fruit">과일</a></li>
+									<li><a href="/test-item/view/Snack">간식</a></li>
 									<li><a href="#">간식</a></li>
 								</ul>
 							</div></li>

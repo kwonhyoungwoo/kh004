@@ -38,6 +38,15 @@ public class AppConfig {
 				member.setPassword("1234");
 				member.setRole("Admin");
 				memberRepository.save(member);
+
+				member = new MemberEntity();
+				member.setId("user");
+				member.setName("유저");
+				member.setPassword("1234");
+				member.setEmail("user@user.com");
+				member.setPhone("010-0000-0000");
+				member.setRole("User");
+				memberRepository.save(member);
 /*
 				repository.save(TestItem.builder()
 					.name("사과")

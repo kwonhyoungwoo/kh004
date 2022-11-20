@@ -86,6 +86,11 @@ public class MemberController {
 			// 모델에 이름 정보를 담아준다.
 			model.addAttribute("name", session.getAttribute("name"));
 		}
+		String id = (String)session.getAttribute("id");
+		if (memberService.isAdmin(id)) {
+			return "/main/myAdminPage";
+		}
+
 		return "/main/myPage";
 	}
 
