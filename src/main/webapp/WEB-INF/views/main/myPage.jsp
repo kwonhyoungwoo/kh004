@@ -23,10 +23,13 @@
             </c:choose>
         </c:when>
     </c:choose>
+
     <div><a href="http://localhost/memberUpdate.html">
         <div>회원 수정</div>
     </a></div>
-    <div style="margin: 10px;">주문 내역</div>
+    <a href="/member/item">
+        <div style="margin: 10px;">주문 내역</div>
+    </a>
     <div style="margin: 10px;">배송지 관리</div>
     <a href="/board">
         <div style="margin: 10px;">도움이 필요하신가요?</div>

@@ -83,7 +83,9 @@ public class MemberService {
 		return memberRepository.findById(id).orElse(null);
 	}
 
-
+	public MemberEntity findById(String id) {
+		return memberRepository.findById(id).orElse(null);
+	}
 
 	// 회원 목록
 	@Transactional
@@ -91,6 +93,4 @@ public class MemberService {
 		Page<MemberEntity> memberEntities = memberRepository.findAll(pageable);
 		return memberEntities.map(entity -> new MemberDto(entity));
 	}
-
-
 }

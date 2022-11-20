@@ -80,6 +80,11 @@ public class MemberController {
 			// 모델에 이름 정보를 담아준다.
 			model.addAttribute("name", session.getAttribute("name"));
 		}
+		String id = (String)session.getAttribute("id");
+		if (memberService.isAdmin(id)) {
+			return "/main/myAdminPage";
+		}
+
 		return "/main/myPage";
 	}
 
@@ -143,5 +148,15 @@ public class MemberController {
 
 
 
+
+	//구매
+	@GetMapping("/item")
+	public String myItem(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("id");
+		MemberEntity member = memberService.findById(id);
+		model.addAttribute("list", member.getItemList());
+		return "th/ItemList";
+
+}
 
 }

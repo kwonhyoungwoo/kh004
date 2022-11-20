@@ -2,11 +2,23 @@ package com.example.kuly2.member;
 
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import java.time.LocalDateTime;
+import javax.persistence.ManyToMany;
+
+import com.example.kuly2.testitem.TestItem;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
@@ -43,6 +55,9 @@ public class MemberEntity {
 
 	@Column(name = "role")
 	private String role;
+
+	@ManyToMany
+	private List<TestItem> itemList = new ArrayList<>();
 
 	private LocalDateTime member_regdate;
 
