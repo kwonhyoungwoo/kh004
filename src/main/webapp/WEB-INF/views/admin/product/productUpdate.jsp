@@ -60,6 +60,9 @@
             <a class="btn btn-dark btn-outline-light justify-content-end" href="${pageContext.request.contextPath}/admin/product/list">취소</a>
             <button class="btn btn-dark btn-outline-light justify-content-end" type="button" onclick="save();">등록</button>
         </div>
+        <div>
+            <input type="hidden" id="product_regdate" name="product_regdate" value="${toUpdate.product_regdate}" />
+        </div>
     </form>
 
     <hr>
@@ -93,7 +96,8 @@
             product_information : $("#product_information").val(),
             product_name : $("#product_name").val(),
             product_price : $("#product_price").val(),
-            product_description : $("#summernote").val()
+            product_description : $("#summernote").val(),
+            product_regdate : $("#product_regdate").val()
         }
 
         formData.append("productDto", new Blob([JSON.stringify(data)], {type : "application/json"}));
@@ -115,7 +119,7 @@
                 contentType : false,
                 enctype : 'multipart/form-data',
                 success : function(res) {
-                    alert("상품이 등록 되었습니다.");
+                    alert("상품이 수정 되었습니다.");
                     location.href = "/admin/product/list";
                 },
                 error : function(res) {

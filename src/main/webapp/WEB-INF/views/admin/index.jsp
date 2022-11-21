@@ -1,16 +1,38 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%--<fmt:requestEncoding value="UTF-8" />--%>
-<html>
-<%@ include file="common/header.jsp"%>
-<style>
-#board-container {width: 70%; margin: 0 auto; padding-top: 3%;}
-#notice1 {width :35%; height: 300px; margin: 0 auto; paddtin-top: 3%; }
-#notice2 {width :35%; height: 300px; margin: 0 auto; paddtin-top: 3%; }
-</style>
-<div class="container-fluid" id="board-container">
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>마켓컬리</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+          crossorigin="anonymous">
+
+    <!— Custom styles for this template —>
+    <link href="/css/cover.css" rel="stylesheet">
+</head>
+<body class="d-flex text-center text-bg-dark">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <jsp:include page="../../views/admin/common/header.jsp">
+        <jsp:param name="header" value="header"/>
+    </jsp:include>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light fw-bold fs-3" href="#">Home</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid" id="board-container">
     <!-- Content Row -->
     <div class="row">
         <!-- Earnings (Monthly) Card Example -->
@@ -164,11 +186,11 @@
         </div>
     </div>
 
-</div>
-<!-- /.container-fluid -->
 
+    <jsp:include page="../../views/admin/common/footer.jsp">
+        <jsp:param name="footer" value="footer"/>
+    </jsp:include>
 </div>
-<!-- End of Main Content -->
 
+</body>
 </html>
-<%@ include file="common/footer.jsp"%>

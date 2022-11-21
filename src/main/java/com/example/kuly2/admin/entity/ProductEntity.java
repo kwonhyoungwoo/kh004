@@ -28,6 +28,7 @@ public class ProductEntity {
     private int product_price;
     private String product_information;
     private String product_photo;
+    @Lob
     private String product_description;
     private int product_rate;
     private String product_adder;

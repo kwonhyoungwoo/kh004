@@ -23,7 +23,7 @@ public class ProductService {
     @Autowired
     ModelMapper modelMapper;
 
-    // 상품 저장
+    // 상품 등록
     @Transactional
     public Long saveWithImage(ProductDto productDto, MultipartFile file) {
         productDto.setProduct_photo(file.getOriginalFilename());

@@ -59,6 +59,9 @@
             <a class="btn btn-dark btn-outline-light justify-content-end" href="${pageContext.request.contextPath}/admin/product/list">취소</a>
             <button class="btn btn-dark btn-outline-light justify-content-end" type="button" onclick="save();">등록</button>
         </div>
+        <div>
+            <input type="hidden" id="product_regdate" name="product_regdate" value="${product.product_regdate}" />
+        </div>
     </form>
 
     <hr>
@@ -118,8 +121,8 @@
                     location.href = "/admin/product/list";
                 },
                 error : function(res) {
-                    alert("아하 여기구나");
-                    location.href = "/admin/product/list";
+                    alert("작성내용을 확인 해주세요");
+                    // location.href = "/admin/product/list";
                 }
             })
         }
