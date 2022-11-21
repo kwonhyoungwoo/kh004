@@ -6,11 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.sql.Timestamp;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /**
  * 작성자 : 정지수
@@ -34,14 +31,14 @@ public class ProductEntity {
     private String product_description;
     private int product_rate;
     private String product_adder;
-    private Timestamp product_regdate;
+    private LocalDateTime product_regdate;
 
 
     @Builder
     public ProductEntity(Long product_no, String product_name, int product_price,
                         String product_information, String product_photo,
                          String product_description, int product_rate ,String product_adder,
-                        Timestamp product_regdate) {
+                         LocalDateTime product_regdate) {
 
         this.product_no = product_no;
         this.product_name = product_name;
@@ -65,5 +62,11 @@ public class ProductEntity {
         this.product_adder = productDto.getProduct_adder();
         this.product_regdate = productDto.getProduct_regdate();
     }
+
+    @PrePersist
+    public void createdAt() {
+        this.product_regdate = LocalDateTime.now();
+    }
+
 
 }

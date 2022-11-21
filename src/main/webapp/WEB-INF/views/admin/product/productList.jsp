@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<%@ taglib prefix="javatime" uri="http://sargue.net/jsptags/time" %>--%>
+<%@ taglib prefix="javatime" uri="http://sargue.net/jsptags/time" %>
 <!doctype html>
 <html lang="en" class="h-100">
 <head>
@@ -42,13 +42,10 @@
             <th scope="col">상품가격</th>
             <th scope="col">상품정보</th>
 <%--            <th scope="col">상품사진</th>--%>
-
             <th scope="col">상품설명</th>
             <th scope="col">상품판매량</th>
             <th scope="col">상품등록자</th>
             <th scope="col">상품등록날짜</th>
-
-            <%--            <th scope="col">추천</th>--%>
         </tr>
         </thead>
         <tbody>
@@ -59,15 +56,13 @@
                         <td>${product.product_no}</td>
                         <td>${product.product_name}</td>
                         <td>${product.product_price}</td>
-
                         <td>${product.product_information}</td>
 <%--                        <td>${product.product_photo}</td>--%>
                         <td>${product.product_description}</td>
                         <td>${product.product_rate}</td>
                         <td>${product.product_adder}</td>
-
                         <td>
-                            <javatime:format pattern="yyyy-MM-dd" value="${product.product_regdate}"/>
+                         <javatime:format pattern="yyyy-MM-dd HH:mm" value="${product.product_regdate}"/>
                         </td>
                     </tr>
                 </c:forEach>

@@ -31,14 +31,7 @@ public class AdminPageController {
         return "admin/index";
     }
 
-    /** 내용 : 관리자 - 회원리스트 조회 뷰  */
-    @RequestMapping("/memberList")
-    public String memberListView(Model model){
-        model.addAttribute("memberList", memberService.getAllMembers());
-        return "admin/member/memberList";
-    }
-
-    // 상품 목록 페이징
+    // 상품 목록 + 페이징
     @GetMapping("/product/list")
     public String list(Model model, @PageableDefault(direction = Sort.Direction.DESC, size = 20) Pageable pageable) {
         Page<ProductDto> productDtos = productService.findAll(pageable);

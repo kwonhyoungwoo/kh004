@@ -4,7 +4,7 @@ import com.example.kuly2.admin.entity.ProductEntity;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 /**
  * 작성자 : 정지수
@@ -25,7 +25,7 @@ public class ProductDto {
     private String product_description;
     private int product_rate;
     private String product_adder;
-    private Timestamp product_regdate;
+    private LocalDateTime product_regdate;
 
 
     @Builder

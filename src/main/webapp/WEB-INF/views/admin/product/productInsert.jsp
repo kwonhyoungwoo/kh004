@@ -46,7 +46,7 @@
         </div>
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="product_price" name="product_price" placeholder="상품 가격" required>
-            <label for="product_price" class="text-black-50">삼품 가격을 입력하세요</label>
+            <label for="product_price" class="text-black-50">상품 가격을 입력하세요</label>
         </div>
         <div class="input-group mb-3">
             <input type="file" class="form-control" name="file" id="file" accept="*">
@@ -89,7 +89,8 @@
             product_information : $("#product_information").val(),
             product_name : $("#product_name").val(),
             product_price : $("#product_price").val(),
-            product_description : $("#summernote").val()
+            product_description : $("#summernote").val(),
+            product_regdate : $("#product_regdate").val()
         }
 
         formData.append("productDto", new Blob([JSON.stringify(data)], {type : "application/json"}));

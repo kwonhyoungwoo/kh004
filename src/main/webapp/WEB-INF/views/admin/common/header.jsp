@@ -21,7 +21,7 @@
         <h3 class="float-md-start mb-0">관리자 페이지</h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
             <a id="header-nav-1" class="nav-link fw-bold py-1 px-0" aria-current="page" href="/admin/main">Home</a>
-            <a id="header-nav-2" class="nav-link fw-bold py-1 px-0" href="${pageContext.request.contextPath}/admin/memberList">회원게시판</a>
+            <a id="header-nav-2" class="nav-link fw-bold py-1 px-0" href="${pageContext.request.contextPath}/member/list">회원게시판</a>
             <a id="header-nav-3" class="nav-link fw-bold py-1 px-0" href="${pageContext.request.contextPath}/admin/product/list">상품게시판</a>
             <a id="header-nav-4" class="nav-link fw-bold py-1 px-0" href="${pageContext.request.contextPath}/admin/board">회원문의</a>
             <a id="header-nav-5" class="nav-link fw-bold py-1 px-0" href="#">Contact</a>
