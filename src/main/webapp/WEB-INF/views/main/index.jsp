@@ -23,7 +23,7 @@
 				<div class="item">
 					<a href="#">
 						<div class="img_box">
-							<img src="/image/123.png">
+							<img src="${pageContext.request.contextPath}/image/upload/${product.product_photo}">
 						</div>
 						<div class="txt_box">
 							<h4>${product.product_name}</h4>
@@ -45,7 +45,7 @@
 				<div class="item">
 					<a href="#">
 						<div class="img_box">
-							<img src="/image/123.png">
+							<img src="${pageContext.request.contextPath}/image/upload/${product.product_photo}">
 						</div>
 						<div class="txt_box">
 							<h4>${product.product_name}</h4>
@@ -59,8 +59,8 @@
 	</div>
 	<div class="list_slider">
 		<div class="cate_list">
-			<h3 style="margin-bottom: 10px;">집에서 즐기는 ~~<i class="fa fa-chevron-right"></i></h3> <%-- 카테고리 상품 뿌려질곳 --%>
-			<p>집에서 부담없이 즐기는 ~~~</p>
+			<h3 style="margin-bottom: 10px;">믿고 먹는 신선식품<i class="fa fa-chevron-right"></i></h3> <%-- 카테고리 상품 뿌려질곳 --%>
+			<p>좋은 신선 식품을 합리적인 가격에 만나보세요</p>
 		</div>
 		<a class="prev3" href="#"><i class="fa fa-chevron-circle-left fa-4x"></i></a>	
 		<a class="next3" href="#"><i class="fa fa-chevron-circle-right fa-4x"></i></a>	
@@ -69,7 +69,7 @@
 				<div class="item">
 					<a href="#">
 						<div class="img_box">
-							<img src="/image/123.png">
+							<img src="${pageContext.request.contextPath}/image/upload/${product.product_photo}">
 						</div>
 						<div class="txt_box">
 							<h4>${product.product_name}</h4>

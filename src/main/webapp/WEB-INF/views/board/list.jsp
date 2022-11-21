@@ -52,11 +52,32 @@
 				</table>
 				<button class="post_button btn btn-primary btn-sm" onclick="location.href='/board/post'">문의 하기</button> <br>
 			</div>
-
 			<%-- 페이징 처리 --%>
 			<div class="page_button">
-				<a class="page_prev" href="?page=${prev}"><i class="fa fa-arrow-circle-left"></i></a>
-				<a class="page_next" href="?page=${next}"><i class="fa fa-arrow-circle-right"></i></a>
+				<c:choose>
+					<c:when test="${hasPrev == false }">
+						<a class="page_prev"><i style="color: #d3d3d3;" class="fa fa-caret-square-o-left fa-2x"></i></a>
+							<c:if test="${hasNext == false }">
+								<a class="page_next"><i style="color: #d3d3d3;" class="fa fa-caret-square-o-right fa-2x"></i></a>	
+							</c:if>
+							<c:if test="${hasNext == true }">
+								<a class="page_next" href="?page=${next}"><i style="color: gray;" class="fa fa-caret-square-o-right fa-2x"></i></a>		
+							</c:if>	
+					</c:when>
+					<c:when test="${hasNext == false }">
+						<c:if test="${hasPrev == true }">
+							<a class="page_prev" href="?page=${prev}"><i style="color: gray;" class="fa fa-caret-square-o-left fa-2x"></i></a>
+						</c:if>	
+						<c:if test="${hasPrev == false }">
+							<a class="page_prev"><i style="color: #d3d3d3;" class="fa fa-caret-square-o-left fa-2x"></i></a>
+						</c:if>
+						<a class="page_next"><i style="color: #d3d3d3;" class="fa fa-caret-square-o-right fa-2x"></i></a>	
+					</c:when>
+					<c:otherwise>
+						<a class="page_prev" href="?page=${prev}"><i style="color: gray;" class="fa fa-caret-square-o-left fa-2x"></i></a>
+						<a class="page_next" href="?page=${next}"><i style="color: gray;" class="fa fa-caret-square-o-right fa-2x"></i></a>		
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</c:otherwise>
 	</c:choose>
