@@ -41,8 +41,6 @@
             <th scope="col">상품이름</th>
             <th scope="col">상품가격</th>
             <th scope="col">상품정보</th>
-<%--            <th scope="col">상품사진</th>--%>
-            <th scope="col">상품설명</th>
             <th scope="col">상품판매량</th>
             <th scope="col">상품등록자</th>
             <th scope="col">상품등록날짜</th>
@@ -57,8 +55,6 @@
                         <td>${product.product_name}</td>
                         <td>${product.product_price}</td>
                         <td>${product.product_information}</td>
-<%--                        <td>${product.product_photo}</td>--%>
-                        <td>${product.product_description}</td>
                         <td>${product.product_rate}</td>
                         <td>${product.product_adder}</td>
                         <td>
