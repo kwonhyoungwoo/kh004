@@ -68,7 +68,6 @@ function deleteBoard() {
 						<fmt:formatDate value="${createDate }" pattern="yyyy/MM/dd HH:mm" />
 					</p>
 					<p class="board_detail_repContent">${rep.content }</p>
-					<hr>
 				</c:forEach>
 			</div>
 		</div>

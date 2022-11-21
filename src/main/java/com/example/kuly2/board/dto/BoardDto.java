@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.constraints.NotBlank;
 
 import com.example.kuly2.board.domain.entity.BoardEntity;
+import com.example.kuly2.board.domain.entity.ReplyEntity;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -27,18 +28,17 @@ public class BoardDto {
 	@NotBlank(message = "내용을 입력해주세요.")
 	private String content;
 	private LocalDateTime createDate;
-	private List<ReplyDto> repList;
+	private List<ReplyEntity> repList;
 	
 	@Builder
-	public BoardDto(Long id, String title, String writer, String content, 
-			LocalDateTime createDate, String userId, List<ReplyDto> repList) {
-		this.id = id;
-		this.title = title;
-		this.writer = writer;
-		this.content = content;
-		this.createDate = createDate;
-		this.userId = userId;
-		this.repList = repList;
+	public BoardDto(BoardEntity boardEntity) {
+		this.id = boardEntity.getId();
+		this.title = boardEntity.getTitle();
+		this.writer = boardEntity.getWriter();
+		this.content = boardEntity.getContent();
+		this.createDate = boardEntity.getCreateDate();
+		this.userId = boardEntity.getUserId();
+		this.repList = boardEntity.getRepList();
 	}
 
 	// 필요한 Entity추가

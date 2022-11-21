@@ -1,17 +1,13 @@
 package com.example.kuly2.board.service;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.transaction.Transactional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
@@ -50,24 +46,16 @@ public class BoardService {
 
 	// 전체 게시글
 	@Transactional
-	public List<BoardDto> getBoardList(Integer pageNum) {
-		Page<BoardEntity> page = boardRepository
-				.findAll(PageRequest.of(pageNum - 1, PAGE_BOARD_COUNT, Sort.by(Sort.Direction.DESC, "id")));
-		// repository.find() 호출하면서 PageRequest.of()를 사용해 페이징 처리, Sort를 사용해서 DESC정렬 ""에는 기준컬럼을 넣어주기
-		List<BoardEntity> boardEntities = page.getContent();
-		List<BoardDto> boardDtoList = Arrays.asList(modelMapper.map(boardEntities, BoardDto[].class));
-		// Arrays.asList, 배열 처리후 리스트로 변환하기
-
-		return boardDtoList;
+	public Page<BoardDto> getBoardList(Pageable pageable) {
+		Page<BoardEntity> boardEntities = boardRepository.findAll(pageable);
+		return boardEntities.map(entity -> new BoardDto(entity));
 	}
-
+	
 	// 로그인된 유저 게시글
 	@Transactional
-	public List<BoardDto> getMemberBoardList(String userId, Pageable pageable) {
-		Page<BoardEntity> page = boardRepository.findByUserId(userId, pageable);
-		List<BoardEntity> boardEntities = page.getContent();
-		List<BoardDto> boardDtoList = Arrays.asList(modelMapper.map(boardEntities, BoardDto[].class));
-		return boardDtoList;
+	public Page<BoardDto> getMemberBoardList(String userId, Pageable pageable) {
+		Page<BoardEntity> boardEntities = boardRepository.findByUserId(userId, pageable);
+		return boardEntities.map(entity -> new BoardDto(entity));
 	}
 
 	// 게시글 카운트
@@ -117,5 +105,28 @@ public class BoardService {
 	public void deleteBoard(Long id) {
 		boardRepository.deleteById(id);
 	}
+	
+	
+/*	// 기존 전체 게시글 삭제
+	@Transactional
+	public List<BoardDto> getBoardList(Integer pageNum) {
+		Page<BoardEntity> page = boardRepository
+				.findAll(PageRequest.of(pageNum - 1, PAGE_BOARD_COUNT, Sort.by(Sort.Direction.DESC, "id")));
+		// repository.find() 호출하면서 PageRequest.of()를 사용해 페이징 처리, Sort를 사용해서 DESC정렬 ""에는 기준컬럼을 넣어주기
+		List<BoardEntity> boardEntities = page.getContent();
+		List<BoardDto> boardDtoList = Arrays.asList(modelMapper.map(boardEntities, BoardDto[].class));
+		// Arrays.asList, 배열 처리후 리스트로 변환하기
 
+		return boardDtoList;
+	}
+	
+	// 기존 로그인된 유저 게시글 삭제
+	@Transactional
+	public List<BoardDto> getMemberBoardList(String userId, Pageable pageable) {
+		Page<BoardEntity> page = boardRepository.findByUserId(userId, pageable);
+		List<BoardEntity> boardEntities = page.getContent();
+		List<BoardDto> boardDtoList = Arrays.asList(modelMapper.map(boardEntities, BoardDto[].class));
+		return boardDtoList;
+	}
+*/
 }

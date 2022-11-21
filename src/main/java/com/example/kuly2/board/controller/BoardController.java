@@ -1,9 +1,12 @@
 package com.example.kuly2.board.controller;
 
 
-import com.example.kuly2.board.dto.BoardDto;
-import com.example.kuly2.board.service.BoardService;
-import lombok.AllArgsConstructor;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -13,12 +16,11 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-import java.util.List;
-import java.util.Map;
+import com.example.kuly2.board.dto.BoardDto;
+import com.example.kuly2.board.service.BoardService;
+
+import lombok.AllArgsConstructor;
 
 @Controller
 @AllArgsConstructor
@@ -29,13 +31,15 @@ public class BoardController {
 	// 게시글 목록 *본인이 작성한 글만 출력
 	@GetMapping("/board")
 	public String memberBoards(HttpSession session, Model model,
-			@PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
-		List<BoardDto> boardList = boardService.getMemberBoardList((String) session.getAttribute("id"), pageable);
-		model.addAttribute("boardList", boardList);
+			@PageableDefault(sort = "id", direction = Sort.Direction.DESC, size = 5) Pageable pageable) {
+		Page<BoardDto> boardList = boardService.getMemberBoardList((String) session.getAttribute("id"), pageable);
+		model.addAttribute("boardList", boardList.getContent());
 		model.addAttribute("prev", pageable.previousOrFirst().getPageNumber());
 		model.addAttribute("next", pageable.next().getPageNumber());
+		model.addAttribute("hasNext", boardList.hasNext());
+		model.addAttribute("hasPrev", boardList.hasPrevious());
 		if (session.getAttribute("id") == null) {
-			model.addAttribute("msg", "잘못된 접근 방식입니다.");
+			model.addAttribute("msg", "잘못된 접근 방식입니다."); 
 			return "/board/error";
 		}
 		return "/board/list";
@@ -105,12 +109,24 @@ public class BoardController {
 	// **관리자
 	// 게시글 목록
 	@GetMapping("/admin/board")
-	public String adminBoards(HttpSession session, Model model,
-			@RequestParam(value = "page", defaultValue = "1") Integer pageNum) {
-		List<BoardDto> boardList = boardService.getBoardList(pageNum);
-		Integer[] pageList = boardService.getPageList(pageNum);
-		model.addAttribute("boardList", boardList);
-		model.addAttribute("pageList", pageList);
+	public String adminBoards(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+		Page<BoardDto> boardList = boardService.getBoardList(pageable);
+		
+		// 현재 페이지
+        int pageNumber = boardList.getPageable().getPageNumber();
+        // 총 페이지
+        int totalPages = boardList.getTotalPages();
+        int pageBlock = 5;
+        int startBlockPage  = ((pageNumber)/pageBlock)*pageBlock + 1;
+        int endBlockPage = startBlockPage+pageBlock - 1;
+        endBlockPage = totalPages < endBlockPage ? totalPages : endBlockPage;
+
+        model.addAttribute("boardList", boardList.getContent());
+        model.addAttribute("pageNumber", pageNumber);
+        model.addAttribute("totalPages",totalPages);
+        model.addAttribute("startBlockPage",startBlockPage);
+        model.addAttribute("endBlockPage", endBlockPage);
+		model.addAttribute("boardList", boardList.getContent());
 		return "/board/adminList";
 	}
 

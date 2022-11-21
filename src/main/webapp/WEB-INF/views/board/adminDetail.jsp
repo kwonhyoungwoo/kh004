@@ -2,15 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 문의 상세보기</title>
-<%@ include file="../admin/common/header.jsp"%>
-<link href="/css/board/board.css" rel="stylesheet" type="text/css">
+<title>회원 문의 상세</title>
 <script src="https://kit.fontawesome.com/afa5bb7adf.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"	integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<link href="/css/board/board.css" rel="stylesheet" type="text/css">
 <script>
 function editRep() {
 	if (confirm("해당 답변을 수정하시겠습니까?")) {
@@ -35,21 +34,30 @@ function deleteRep() {
 
 </script>
 </head>
-<body>
-	<h5 class="list_title">문의 내용</h5>
+<body class="d-flex text-bg-dark">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<%@ include file="../admin/common/header.jsp"%>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <h5 class="navbar-brand text-light fw-bold fs-3">문의 내용</h5>
+        </div>
+    </nav>
 	<div class="container">
 		<div class="row">
 			<div class="board_detail">
 				<div class="row">
-					<h5 style="width: 1030px;" class="col-1">제목</h5>
-					<p class="col-5">${boardDto.title}</p>
-					<h5 class="col-1">작성자</h5>
-					<p class="col-2">${boardDto.userId }(${boardDto.writer })</p>
-					<h5 class="col-1">등록일</h5>
-					<p class="col-2">
-						<fmt:parseDate value="${boardDto.createDate }" var="createDate" pattern="yyyy-MM-dd'T'HH:mm" />
-						<fmt:formatDate value="${createDate }" pattern="yyyy/MM/dd HH:mm" />
-					</p>
+					<h5 width="30%">제목</h5>
+					<p class="col">${boardDto.title}</p>
+					<div class="row">
+						<h5 class="col-2">작성자</h5>
+						<p class="col-4">${boardDto.userId }(${boardDto.writer })</p>
+						<h5 class="col-2">등록일</h5>
+						<p class="col-4">
+							<fmt:parseDate value="${boardDto.createDate }" var="createDate" pattern="yyyy-MM-dd'T'HH:mm" />
+							<fmt:formatDate value="${createDate }" pattern="yyyy/MM/dd HH:mm" />
+						</p>
+					</div>
 				</div>
 				<hr class="detail_hr">
 				<div>
@@ -65,7 +73,7 @@ function deleteRep() {
 			</div>
 		</div>
 		<%-- 답변 영역 --%>
-		<div class="rep_wrap card card-body">
+		<div class="rep_wrap card card-body text-bg-dark">
 			<c:forEach var="rep" items="${boardDto.repList }">
 				<p class="board_detail_repid">
 						관리자
@@ -83,21 +91,23 @@ function deleteRep() {
 				</div>
 				<div class="collapse rep_edit_${rep.id }">
 					<form id="rep_edit_form" action="/edit/${rep.id}/${boardDto.id}" method="post" onsubmit="return false">
-						<textarea name="content" class="form-control" rows="2">${rep.content }</textarea>
+						<textarea name="content" class="form-control text-bg-dark" rows="2">${rep.content }</textarea>
 						<button onclick="editRep()" class="admin_repPost btn btn-secondary update-btn btn-sm">수정하기</button>
 					</form>
 				</div>
-				<hr>
 			</c:forEach>
+			<c:if test="${fn:length(boardDto.repList) == 0 }">		
 			<form action="/admin/rep/write/${boardDto.id }" method="post">
 				<div>
-					<textarea name="content" class="form-control" placeholder="내용을 작성해주세요." rows="2"></textarea>
+					<textarea name="content" class="form-control text-bg-dark" placeholder="내용을 작성해주세요." rows="2"></textarea>
 					<button type="submit" class="admin_repPost btn btn-secondary update-btn btn-sm">답변등록</button>
 				</div>
 			</form>
+			</c:if>
 		</div>
 	</div>
 	<%-- 답변 영역 끝 --%>
-	<%@ include file="../admin/common/footer.jsp"%>
+<%@ include file="../admin/common/footer.jsp"%>
+</div>
 </body>
 </html>
