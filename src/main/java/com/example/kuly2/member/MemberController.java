@@ -31,10 +31,11 @@ public class MemberController {
 		if (member != null) {
 			session.setAttribute("id", member.getId());
 			session.setAttribute("name", member.getName());   // ~~님 환영합니다 이름!
-			model.addAttribute("message", "로그인 성공!");
+			model.addAttribute("message", "로그인 성공!"); // 이 message?
 		} else {
 			model.addAttribute("message", "로그인 실패!");
-			return "redirect:/loginFail.html";
+			//return "redirect:/loginFail.html";
+			return "login/loginFail";
 		}
 		return "redirect:/";
 	}
@@ -60,6 +61,7 @@ public class MemberController {
 		}
 		model.addAttribute("id", id);
 		return "th/loginFindResult";
+		
 		
 	}
 
@@ -124,6 +126,7 @@ public class MemberController {
 
 
 	// 회원 목록 + 페이징
+	/*
 	@GetMapping("/list")
 	public String list(Model model, @PageableDefault(direction = Sort.Direction.DESC, size = 20) Pageable pageable) {
 		Page<MemberDto> memberDtos = memberService.findAll(pageable);
@@ -146,7 +149,7 @@ public class MemberController {
 		return "admin/member/memberList";
 	}
 
-
+*/
 
 
 	//구매

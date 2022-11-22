@@ -88,9 +88,12 @@ public class MemberService {
 	}
 
 	// 회원 목록
+	/*
 	@Transactional
 	public Page<MemberDto> findAll(Pageable pageable) {
 		Page<MemberEntity> memberEntities = memberRepository.findAll(pageable);
 		return memberEntities.map(entity -> new MemberDto(entity));
+		
 	}
+	*/
 }
