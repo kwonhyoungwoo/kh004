@@ -1,23 +1,33 @@
 package com.example.kuly2.member;
 
-import com.example.kuly2.member.request.*;
-import lombok.RequiredArgsConstructor;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpSession;
+import com.example.kuly2.member.request.MemberFindIdRequest;
+import com.example.kuly2.member.request.MemberFindPasswordRequest;
+import com.example.kuly2.member.request.MemberLoginRequest;
+import com.example.kuly2.member.request.MemberRegistRequest;
+import com.example.kuly2.member.request.MemberUpdateRequest;
+
+import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/member")
 public class MemberController {
 
-	private final MemberService memberService; 
+	private final MemberService memberService;
 
 	@PostMapping
 	public String regist(MemberRegistRequest request) {
@@ -31,10 +41,11 @@ public class MemberController {
 		if (member != null) {
 			session.setAttribute("id", member.getId());
 			session.setAttribute("name", member.getName());   // ~~님 환영합니다 이름!
-			model.addAttribute("message", "로그인 성공!");
+			model.addAttribute("message", "로그인 성공!"); // 이 message?
 		} else {
 			model.addAttribute("message", "로그인 실패!");
-			return "redirect:/loginFail.html";
+			//return "redirect:/loginFail.html";
+			return "login/loginFail";
 		}
 		return "redirect:/";
 	}
@@ -55,12 +66,12 @@ public class MemberController {
 	@GetMapping("/find/id")
 	public String findId(MemberFindIdRequest request, Model model) {
 		String id = memberService.findId(request);
-		if (id == null || id.equals("")) { 
+		if (id == null || id.equals("")) {
 			return "redirect:/findIdFail.html";
 		}
 		model.addAttribute("id", id);
 		return "th/loginFindResult";
-		
+
 	}
 
 	@GetMapping("/find/password")
@@ -91,7 +102,7 @@ public class MemberController {
 	@PostMapping("/update")
 	public String update(HttpSession session, Model model, MemberUpdateRequest request) {
 		String id = (String)session.getAttribute("id");
-		boolean update = memberService.update(id, request); 
+		boolean update = memberService.update(id, request);
 
 		model.addAttribute("success", update);
 		session.setAttribute("name", request.getName());
@@ -122,7 +133,6 @@ public class MemberController {
 		return "admin/member/memberList";
 	}
 
-
 	// 회원 목록 + 페이징
 	@GetMapping("/list")
 	public String list(Model model, @PageableDefault(direction = Sort.Direction.DESC, size = 20) Pageable pageable) {
@@ -146,9 +156,6 @@ public class MemberController {
 		return "admin/member/memberList";
 	}
 
-
-
-
 	//구매
 	@GetMapping("/item")
 	public String myItem(HttpSession session, Model model) {
@@ -157,6 +164,6 @@ public class MemberController {
 		model.addAttribute("list", member.getItemList());
 		return "th/ItemList";
 
-}
+	}
 
 }

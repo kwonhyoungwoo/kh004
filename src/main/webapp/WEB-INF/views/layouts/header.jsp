@@ -86,10 +86,10 @@ function notMember(){
 						<li><a href="#"><i class="fa fa-list"></i>전체 카테고리</a>
 							<div class="sub_menu_1">
 								<ul>
-									<li><a href="#">과일</a></li>
-									<li><a href="#">간식</a></li>
-<%--									<li><a href="/test-item/view/Fruit">과일</a></li>--%>
-<%--									<li><a href="/test-item/view/Snack">간식</a></li>--%>
+<%--									<li><a href="#">과일</a></li>--%>
+<%--									<li><a href="#">간식</a></li>--%>
+									<li><a href="/test-item/view/Fruit">과일</a></li>
+									<li><a href="/test-item/view/Snack">간식</a></li>
 									<li><a href="#">간식</a></li>
 								</ul>
 							</div>
