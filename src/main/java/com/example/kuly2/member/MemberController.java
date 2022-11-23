@@ -130,7 +130,6 @@ public class MemberController {
 	}
 
 	// 회원 목록 + 페이징
-	/*
 	@GetMapping("/list")
 	public String list(Model model, @PageableDefault(direction = Sort.Direction.DESC, size = 20) Pageable pageable) {
 		Page<MemberDto> memberDtos = memberService.findAll(pageable);
@@ -152,8 +151,6 @@ public class MemberController {
 
 		return "admin/member/memberList";
 	}
-
-*/
 
 	//구매
 	@GetMapping("/item")
