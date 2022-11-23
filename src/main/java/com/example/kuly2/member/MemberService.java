@@ -22,13 +22,18 @@ public class MemberService {
 		// modelMapper.map(1, 2);
 		// 1번으 객체를 2번타입으로 바꿔주겠다
 		MemberEntity member = modelMapper.map(request, MemberEntity.class); //meberentity.class?
-		return memberRepository.save(member);  // 
+		member.setRole("User");
+		// MemberEntity member = new MemberEntity();
+		// member.setId(request.getId());
+		// member.setPhone(request.getPhone());
+		// member.setEmail(request.getEmail());
+		// member.setBirth(request.getBirth());
+		// ...
+		return memberRepository.save(member);  //
 	}
 
 	// 로그인
 	public MemberEntity login(MemberLoginRequest request) {
-		System.out.println(request.getId());
-		System.out.println(request.getPassword());
 		MemberEntity member = memberRepository.findById(request.getId()).orElse(null);
 		if (member == null || !member.getPassword().equals(request.getPassword())) {
 			return null;
@@ -57,6 +62,9 @@ public class MemberService {
 
 	// 회원정보 수정
 	public boolean update(String id, MemberUpdateRequest request) {
+		if (!request.getPasswordConfirm().equals(request.getPassword())) {
+			return false;
+		}
 		MemberEntity member = memberRepository.findById(id).orElse(null);
 		if (member == null) {
 			return false;

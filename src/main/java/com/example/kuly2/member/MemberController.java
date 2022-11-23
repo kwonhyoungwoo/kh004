@@ -36,14 +36,12 @@ public class MemberController {
 	}
 
 	@PostMapping("/login")
-	public String login(MemberLoginRequest request, Model model, HttpSession session) {
+	public String login(MemberLoginRequest request, HttpSession session) {
 		MemberEntity member = memberService.login(request);
 		if (member != null) {
 			session.setAttribute("id", member.getId());
 			session.setAttribute("name", member.getName());   // ~~님 환영합니다 이름!
-			model.addAttribute("message", "로그인 성공!"); // 이 message?
 		} else {
-			model.addAttribute("message", "로그인 실패!");
 			//return "redirect:/loginFail.html";
 			return "login/loginFail";
 		}
@@ -93,7 +91,8 @@ public class MemberController {
 		}
 		String id = (String)session.getAttribute("id");
 		if (memberService.isAdmin(id)) {
-			return "/main/myAdminPage";
+			// return "redirect:/admin/main";
+			return "/admin/index";
 		}
 
 		return "/main/myPage";
@@ -116,8 +115,7 @@ public class MemberController {
 		String id = (String)session.getAttribute("id");
 		// 관리자 권한 체크
 		if (!memberService.isAdmin(id)) {
-			model.addAttribute("memberList", memberService.getAllMembers());
-			return "admin/member/memberList";
+			return "redirect:/";
 		}
 
 		// 수정할 멤버 데이터 넘기기
@@ -129,8 +127,7 @@ public class MemberController {
 	@PostMapping("/update/admin")
 	public String updateByAdmin(HttpSession session, Model model, MemberUpdateRequest request) {
 		memberService.update(request.getId(), request); //?b?
-		model.addAttribute("memberList", memberService.getAllMembers());
-		return "admin/member/memberList";
+		return "redirect:/member/list";
 	}
 
 	// 회원 목록 + 페이징

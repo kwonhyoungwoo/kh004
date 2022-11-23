@@ -7,9 +7,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface MemberRepository extends JpaRepository<MemberEntity, String> {
 
 	@Override
-	//id 
+	//id
 	Optional<MemberEntity> findById(String id);
     // name, email로 id찾기
+	// select * from MemberEntity
+	// where name2 = '?' and email = '?';
 	Optional<MemberEntity> findByNameAndEmail(String name, String email);
 	// name, id 로 pw찾기
 	Optional<MemberEntity> findByNameAndId(String name, String id);

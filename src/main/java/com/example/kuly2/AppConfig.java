@@ -47,7 +47,7 @@ public class AppConfig {
 				member.setName("유저");
 				member.setPassword("1234");
 				member.setEmail("user@user.com");
-				member.setPhone("010-0000-0000");
+				member.setPhone("01000000000");
 				member.setRole("User");
 				memberRepository.save(member);
 /*
