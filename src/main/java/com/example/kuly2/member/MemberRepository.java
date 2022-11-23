@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface MemberRepository extends JpaRepository<MemberEntity, String> {
 
 	@Override
-	//id 회원정보수정
+	//id 
 	Optional<MemberEntity> findById(String id);
     // name, email로 id찾기
 	Optional<MemberEntity> findByNameAndEmail(String name, String email);

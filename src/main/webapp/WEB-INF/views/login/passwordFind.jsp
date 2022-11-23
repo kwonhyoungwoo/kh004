@@ -1,5 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+
+
 <head>
     <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/real_main.css.css"/>
@@ -54,22 +58,7 @@
     </div>
     <br><br><br><br><br><br><br><br><br><br>
     
+    </div>
+    </body>
     
-    
-    
-    
-    
-     
-    <footer>
-        <hr class=hr2>
-        <img class="fi" src="../image/footer_img.jpg" alt="푸터 이미지">
-        <div class="divfp">
-            <p class="fp">
-                마켓컬리에서 판매되는 상품 중에는 마켓컬리에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.<br>
-                마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.<br>
-                © KURLY CORP. ALL RIGHTS RESERVED</p>
-        </div>
-    </footer>
-    
-</body>
 </html>
