@@ -63,7 +63,7 @@ public class MemberService {
 	// 회원정보 수정
 	public boolean update(String id, MemberUpdateRequest request) {
 		if (!request.getPasswordConfirm().equals(request.getPassword())) {
-			return false;
+			return false; // 비번, 비번 확인 틀리면 false
 		}
 		MemberEntity member = memberRepository.findById(id).orElse(null);
 		if (member == null) {
