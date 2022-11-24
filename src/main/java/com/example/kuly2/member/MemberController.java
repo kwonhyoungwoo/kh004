@@ -109,7 +109,7 @@ public class MemberController {
 		//return "th/myPage"; 
 	}
 
-	// 관리자 회원 정보 페이지로 가기
+	// 관리자 회원 정보 페이지로 가기(2번)
 	@GetMapping("/update/admin/{memberId}")
 	public String updatePage(HttpSession session, Model model, @PathVariable String memberId) {
 		String id = (String)session.getAttribute("id");
@@ -123,14 +123,14 @@ public class MemberController {
 		return "th/adminMemberUpdate";
 	}
 
-	// 관리자의 회원 수정
+	// 관리자의 회원 수정(3번)
 	@PostMapping("/update/admin")
 	public String updateByAdmin(HttpSession session, Model model, MemberUpdateRequest request) {
 		memberService.update(request.getId(), request); //?b?
 		return "redirect:/member/list";
 	}
 
-	// 회원 목록 + 페이징
+	// 회원 목록 + 페이징(관리자 회원 1번)
 	@GetMapping("/list")
 	public String list(Model model, @PageableDefault(direction = Sort.Direction.DESC, size = 20) Pageable pageable) {
 		Page<MemberDto> memberDtos = memberService.findAll(pageable);

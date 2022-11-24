@@ -37,7 +37,8 @@ public class AdminApiController {
         String PATH = req.getSession().getServletContext().getRealPath("/");
 
         if(!file.getOriginalFilename().isEmpty())
-            file.transferTo(new File("C:\\FinalProject\\src\\main\\resources\\static\\image\\upload\\" + file.getOriginalFilename()));
+          //  file.transferTo(new File("C:\\FinalProject\\src\\main\\resources\\static\\image\\upload\\" + file.getOriginalFilename()));
+        file.transferTo(new File("C:\\Users\\cruel\\OneDrive\\바탕 화면\\kh004\\src\\main\\resources\\static\\image" + file.getOriginalFilename()));
 
         return productService.saveWithImage(productDto, file);
     }
